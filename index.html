@@ -1,96 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+	<head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        /* Remove the navbar's default margin-bottom and rounded borders */
+	</head>
+	<body>
+		 <style>
+		 @font-face {
+    font-family: 'gwibbleregular';
+    src: url('fonts/gwibble_-webfont.woff2') format('woff2'),
+         url('fonts/gwibble_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
-        .navbar {
-            margin-bottom: 0;
-            border-radius: 0;
-        }
+}
+		@font-face {
+    font-family: 'grinchedregular';
+    src: url('fonts/grinchedregular-webfont.woff2') format('woff2'),
+         url('fonts/grinchedregular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 
-        /* Add a gray background color and some padding to the footer */
+}
+    body{
+		background: url("bg2.jpg");
+		}
+  	.navbar-toggle{
+    float: left;
+		border: none;
+		}
+		.navbar-header{
+		height: 85px;
+		background: #2e61a0;
+		border: 1px white solid;
+		}
+		#title{
+		font-size: 30pt;
+		margin-left: 40%;
+		margin-top: 20%;
+		font-family: grinchedregular ;
+		color: cyan;
+		}
+		#sun{
+		height: 50px;
+		weight:50px;
+		}
+		.car{
+		font-family:grinchedregular; 
+		transform: translate(-110px,45px);
+		color: blue;
+		font-weight: solid;
+		}
+		#tip{
+		font-family:grinchedregular; 
+		transform: translate(0px, -40px);
+		color: blue;
+		font-weight: solid;
+		}
+		.btn{
+		transform: translate(90px, 210px);
+		width: 50%;
+		heighht:20%;
+		background-color: purple;
+		}
+		.collapse{
+		background-color: white;
+		}
+		.collapse  .nav .dropdown .dropdown-toggle:active{
+		background-color: gray;
+    }
+		.collapse  .nav .dropdown .dropdown-toggle:visited{
+		background-color: gray;
+		}
 
-        footer {
-            background-color: #f2f2f2;
-            padding: 25px;
-        }
-
-        .carousel-inner img {
-            width: 100%;
-            /* Set width to 100% */
-            margin: auto;
-            min-height: 200px;
-        }
-
-        /* Hide the carousel text when the screen is less than 600 pixels wide */
-
-        @media (max-width: 600px) {
-            .carousel-caption {
-                display: none;
-            }
-        }
-
-    </style>
+  </style>
 </head>
-
 <body>
-
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-                <a class="navbar-brand" href="#">A-Plus</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="Gallery.html">Gallery</a></li>
-                    <li><a href="gamePage.html">Game</a></li>
-                    <li><a href="tips.html">Tips</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<img id = "sun" src="hp.png">
+				</button>
+				<a class="navbar-brand" href="#"><div id = "title">Wave</div></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="Gallery.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Gallery</span><span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Photos</span></a></li>
+							<li><a href="#"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Videos</span></a></li>
+						</ul>
+					</li>
+					<li><a href="#"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Articles</span></a></li>
+					<li><a href="tips.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Tips</span></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Sign Up</span></a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-in" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Login</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	 <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="./images/bg3jpg1200-400.jpg" alt="Image">
+                <img src="gal.jpg" alt="Image">
                 <div class="carousel-caption">
-                    <h2>Children</h2>
-                    <h3>are our future!</h3>
+                    <h2 class="car">Gallery</h2>
                 </div>
             </div>
 
             <div class="item">
-                <img src="./images/Children%20saving%20water.jpeg" alt="Image">
+                <img src="ear.png" alt="Image">
                 <div class="carousel-caption">
-                    <h2>Saving Water</h2>
-                    <h3>for their future.</h3>
+                    <h2 class="car">Articles</h2>
+                </div>
+            </div>
+						<div class="item">
+                <img src="bulb.jpg" alt="Image">
+                <div class="carousel-caption">
+                    <h2 id="tip">Tips</h2>
                 </div>
             </div>
         </div>
@@ -105,46 +149,8 @@
       <span class="sr-only">Next</span>
     </a>
     </div>
-
-    <div class="container text-center">
-        <h1>Waave</h1><br>
-        <div class="row">
-            <div class="col-sm-6">
-                <img src="./images/saving%20salmon%20150-80.jpeg" class="img-responsive" style="width:100%" alt="Image">
-                <p>Salmons need water!</p>
-            </div>
-            <div class="col-sm-6">
-                <img src="./images/waterdrop%20150-80.jpg" class="img-responsive" style="width:100%" alt="Image">
-                <p>Drops!</p>
-            </div>
-            <div class="col-sm-6">
-                <div class="well">
-                    <h4>Our Target</h4>
-                    <p>We target on young children and create their awareness about water shortage problem.</p>
-                </div>
-                <div class="well">
-                    <h4>Our App</h4>
-                    <p>This Mobile Web App is full of Fun and knowledgeable informations.</p>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="well">
-                    <h4>Our Team</h4>
-                    <p>We have a great team. We work hard and collabrate together everyday to make our dream come true!</p>
-                </div>
-                <div class="well">
-                    <h4>Tips</h4>
-                    <p>Small changes and steps everyday will bring a significant change in our world and our future!</p>
-                </div>
-            </div>
-
-        </div>
-    </div><br>
-
-    <footer class="container-fluid text-center">
-        <p>Copyright © 2018 May | Design by A-Plus Team</p>
-    </footer>
-
-</body>
-
+		<a href="game.html" class="btn btn-info btn-lg">
+        <span style="font-family: grinchedregular; font-size: 20pt">Save the Salmon</span>
+    </a>
+	</body>
 </html>
