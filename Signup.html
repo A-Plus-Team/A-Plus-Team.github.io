@@ -9,17 +9,34 @@
     <div class="login-box">
         <img src="./images/kids.jpeg" class="man">
         <h1>Sign Up</h1>
-        <form id="signupform" action="register.php#signupform" method="get">
+        <form id="signupform" method="get">
             <p>Username</p>
-            <input type="text" name="username" placeholder="Enter Username">
+            <input type="text" name="username" placeholder="Enter Username" id="username">
             <p>Password</p>
-            <input type="password" name="password1" placeholder="Enter Password">
+            <input type="password" name="password1" placeholder="Enter Password" id="password1">
             <p>Confirm Password</p>
-            <input type="password" name="password2" placeholder="Re-Enter Password">
+            <input type="password" name="password2" placeholder="Re-Enter Password" id="password2">
             <br/><br/>
-            <input type="submit" name="submit" value="signup">
+            <input type="submit" name="submit" value="signup" onclick="signup()">
         </form>
     </div>
+
+    <!-- This is used to config Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyDRQYn7si6Y_rnXzbpQcaO2cgktr1hbesE",
+            authDomain: "waave-a-plus.firebaseapp.com",
+            databaseURL: "https://waave-a-plus.firebaseio.com",
+            projectId: "waave-a-plus",
+            storageBucket: "waave-a-plus.appspot.com",
+            messagingSenderId: "286145905753"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script src="./js/signup.js"></script>
+
 </body>
 
 </html>
