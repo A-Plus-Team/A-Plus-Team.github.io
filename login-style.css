@@ -1,0 +1,55 @@
+ @font-face {
+    font-family: 'gwibbleregular';
+    src: url('fonts/gwibble_-webfont.woff2') format('woff2'),
+         url('fonts/gwibble_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+		@font-face {
+    font-family: 'grinchedregular';
+    src: url('fonts/grinchedregular-webfont.woff2') format('woff2'),
+         url('fonts/grinchedregular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+    body{
+		background: url("images/bg.jpg");
+		}
+  	.navbar-toggle{
+    float: left;
+		border: none;
+		}
+		.navbar-header{
+		height: 85px;
+		background: #2e61a0;
+		border: 1px white solid;
+		}
+		#title{
+		font-size: 30pt;
+		margin-left: 40%;
+		margin-top: 20%;
+		font-family: grinchedregular ;
+		color: cyan;
+		}
+		#sun{
+		height: 50px;
+		weight:50px;
+		}
+		.collapse{
+		background-color: white;
+		}
+		.collapse  .nav .dropdown .dropdown-toggle:active{
+		background-color: gray;
+    }
+		.collapse  .nav .dropdown .dropdown-toggle:visited{
+		background-color: gray;
+		}
+		#profile-img{
+		border: 2px black solid;
+		border-radius: 50%;
+		height: 30%;
+		width: 30%;
+		transform: translateX(120px);
+		}
