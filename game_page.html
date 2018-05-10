@@ -1,0 +1,126 @@
+<!--
+The source code of this webpage contains a game.
+programmer: Jaeheon Jung
+art asset designer : Jaeheon Jung
+The method of the game : 
+A user has to turn off the faucats that are randomely turned on and take items
+to save the water.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="style1.css"/>
+</head>
+<body onload="timeFunction();">
+    <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
+        <p><b>Save Our Water!</b></p>
+    </div>
+    
+    <div id="time" style="position:absolute; top:57px; left:150px;">time :</div>
+    <div id="score" style="position:absolute; top:57px; left:300px;">score :</div>
+    
+    <div id="base" style="position:absolute;  top:80px; left:0px; width:375px; height:507px; border: solid 1px;">
+    <img id="blocks0" src="./game_images/stove2.gif"/>
+    <img id="blocks1" src="./game_images/laundry1.gif"/>
+    <img id="blocks2" src="./game_images/sesu2.gif"/>
+    <img id="blocks3" src="./game_images/bottle2.gif"/>
+    <img id="blocks4" src="./game_images/sink2.gif"/>
+
+    <img id="blocks5" src="./game_images/sink2.gif"/>
+    <img id="blocks6" src="./game_images/sesu2.gif"/>
+    <img id="blocks7" src="./game_images/sesu2.gif"/>
+    <img id="blocks8" src="./game_images/shower1.gif"/>
+    <img id="blocks9" src="./game_images/hose1.gif"/>
+
+    <img id="items0" class="drobby" src="./gameImages/drop6.png"/>
+    <img id="items1" class="drobby" src="./gameImages/drop6.png"/>
+    <img id="items2" class="drobby" src="./gameImages/drop6.png"/>
+
+    <div id="fish" ondrop="drop(event)" ondragover="allowDrop(event)" 
+         style="position:absolute;  bottom:0px; width:90px; height:200px; border: solid; background-color: azure"> <div id="water"></div>
+
+    </div></div>
+    <br>
+    
+    
+    <script>
+        var waterLevel = 200;
+        var score = 0;
+        var time = 0;
+        var image;
+        
+        var blockVariables = [];
+        for(var i = 0 ; i<10 ; i++){
+            blockVariables[i] = false;
+        }
+
+        function timeFunction() {
+            setInterval(function(){ 
+            var spawnRatio = Math.floor((Math.random() * 2) + 1);
+            if(spawnRatio==1){
+                var max = Math.floor((Math.random() * 2) + 1);
+                for(var i = 0; i<max; i++){
+                    var index = Math.floor((Math.random() * 10) + 1) - 1;
+                    if(!blockVariables[index]){
+                    var source = document.getElementById("blocks"+index).src;
+                    document.getElementById("blocks"+index).src = document.getElementById("blocks"+index).src.substring(0, document.getElementById("blocks"+index).src.length-4) + "w" + source.charAt(document.getElementById("blocks"+index).src.length-4) + source.charAt(document.getElementById("blocks"+index).src.length-3) + source.charAt(document.getElementById("blocks"+index).src.length-2) + source.charAt(document.getElementById("blocks"+index).src.length-1);
+                    blockVariables[index] = !blockVariables[index];
+                    }
+                }
+            }
+            if(spawnRatio==1){
+                var max = Math.floor((Math.random() * 3) + 1) - 1;
+                for(var i = 0; i<max; i++){
+                    var index = Math.floor((Math.random() * 3) + 1) - 1;
+                    document.getElementById("items"+index).style.visibility="visible";
+                }
+            }
+            time += 1;
+
+            document.getElementById("time").innerHTML = "time : " + time;}, 1000);
+            setInterval(function(){ 
+            if(waterLevel > 200){
+                waterLevel = 200;
+            }else if ( waterLevel < 0){
+                waterLevel = 2;
+            }
+            for(var i = 0 ; i < 10 ; i++){
+                if(blockVariables[i]){
+                waterLevel -= 0.2;
+                document.getElementById("water").style.height = waterLevel + "px";
+                }
+            }}, 200);
+         }
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        /*<![CDATA[*/
+        $(document).ready(function() {
+            $("img").bind('touchstart click', function (e) {
+                if(blockVariables[e.target.id.charAt(e.target.id.length-1)]){              
+                var jason = document.getElementById("blocks"+e.target.id.charAt(e.target.id.length-1)).src;
+                document.getElementById("blocks"+e.target.id.charAt(e.target.id.length-1)).src = jason.substring(0, jason.length-5);
+                for(var i = 4 ; i>0 ; i--){
+                    document.getElementById("blocks"+e.target.id.charAt(e.target.id.length-1)).src += jason.charAt(jason.length-i);
+                }
+                blockVariables[e.target.id.charAt(e.target.id.length-1)]=!blockVariables[e.target.id.charAt(e.target.id.length-1)];
+                score += 1;
+                waterLevel += 1;
+                document.getElementById("score").innerHTML = "score : " + score;   
+                }
+                return false;
+            });
+            $(".drobby").bind('touchstart click', function (e) {
+                e.target.style.visibility = "hidden";
+                waterLevel += 20/3;
+                document.getElementById("water").style.height = waterLevel + "px";
+                
+             });
+        });
+    </script>
+    <div style="position:absolute; top:589px; left:0px; height:80px; width:375px; border:solid 1px; background-color:#382F71;border:solid 1px;"></div>
+    
+</body>
+</html>
+

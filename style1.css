@@ -1,0 +1,24 @@
+#blocks0{left:0px;top:0px;width:40.634453781512605%;height:auto;position:absolute;} #blocks1{left:216.64008179959103px;top:0px;width:40.634453781512605%;height:auto;position:absolute; } #blocks2{left:0px;top:130.4579831932773px;height:21.201431492842538%;width:auto;position:absolute; } #blocks3{left:77.0961145194274px;top:131.31344537815127px;height:21.201431492842538%;width:auto;position:absolute; } #blocks4{left:167.29856850715746px;top:115.4873949579832px;height:21.201431492842538%;width:auto;position:absolute; } #blocks5{left:323.0327198364008px;top:114.63193277310924px;height:21.201431492842538%;width:auto;position:absolute; } #blocks6{left:226.66257668711654px;top:128.74705882352941px;height:21.201431492842538%;width:auto;position:absolute; } #blocks7{left:323.8036809815951px;top:374.264705882353px;height:21.201431492842538%;width:auto;position:absolute; transform: scaleX(-1);} #blocks8{left:223.5787321063395px;top:245.9453781512605px;width:25.201431492842538%;height:auto;position:absolute; } #blocks9{left:68.23006134969326px;top:321.653781512605px;width:40.634453781512605%;height:auto;position:absolute; } 
+#items0{left:188.11451942740288px;top:52.6109243697479px;height:13%;width:auto;position:absolute; visibility:hidden;} #items1{left:38.5480572597137px;top:230.11932773109243px;height:13%;width:auto;position:absolute; visibility:hidden;} #items2{left:301.44580777096115px;top:318.65966386554624px;height:13%;width:auto;position:absolute; visibility:hidden;}
+#base{
+            
+        background-image: url("house10.png");
+        background-size: cover;
+    }
+
+    #fish{
+        opacity: 0.9;
+        z-index: 5;
+    }
+    #water{
+        position: absolute;
+        bottom:0px;
+        left:0px;
+        z-index: 5;
+        background-color:aqua;
+        height:200px;
+        width:90px;
+        opacity: 0.9;
+        max-height:200px;
+        min-height:3px;
+    }
