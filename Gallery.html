@@ -27,126 +27,126 @@
         }
             
             * {
-  box-sizing: border-box;
-}
+                box-sizing: border-box;
+        }
 
-.row > .column {
-  padding: 0 8px;
-}
+           .row > .column {
+                padding: 0 8px;
+        }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+           .row:after {
+                content: "";
+                display: table;
+                clear: both;
+        }
 
-.column {
-  float: left;
-  width: 25%;
-}
+           .column {
+                float: left;
+                width: 25%;
+        }
 
-/* The Modal (background) */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
+          /* The Modal (background) */
+           .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                padding-top: 100px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: black;
+        }
+            
+        /* Modal Content */
+        .modal-content {
+              position: relative;
+              background-color: #fefefe;
+              margin: auto;
+              padding: 0;
+              width: 90%;
+              max-width: 1200px;
+        }
 
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  width: 90%;
-  max-width: 1200px;
-}
+        /* The Close Button */
+        .close {
+          color: white;
+          position: absolute;
+          top: 10px;
+          right: 25px;
+          font-size: 35px;
+          font-weight: bold;
+        }
 
-/* The Close Button */
-.close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
-}
+        .close:hover,
+        .close:focus {
+          color: #999;
+          text-decoration: none;
+          cursor: pointer;
+        }
 
-.close:hover,
-.close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
+        .mySlides {
+          display: none;
+        }
 
-.mySlides {
-  display: none;
-}
+        .cursor {
+          cursor: pointer
+        }
 
-.cursor {
-  cursor: pointer
-}
+        /* Next & previous buttons */
+        .prev,
+        .next {
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -50px;
+          color: white;
+          font-weight: bold;
+          font-size: 20px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+          -webkit-user-select: none;
+        }
 
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
+        /* Position the "next button" to the right */
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+        }
 
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+          background-color: rgba(0, 0, 0, 0.8);
+        }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
+        /* Number text (1/3 etc) */
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+        }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
+        img {
+          margin-bottom: -4px;
+        }
 
-img {
-  margin-bottom: -4px;
-}
+        .caption-container {
+          text-align: center;
+          background-color: black;
+          padding: 2px 16px;
+          color: white;
+        }
 
-.caption-container {
-  text-align: center;
-  background-color: black;
-  padding: 2px 16px;
-  color: white;
-}
-
-.demo {
-  opacity: 0.6;
-}
+        .demo {
+          opacity: 0.6;
+        }
 
 
             
@@ -157,6 +157,7 @@ img {
 
         <h1>Gallery</h1>
             <img class="person" src="images/Arman/img_espresso.jpg" alt="Here's a little gallery focused on our world's most precious resource." />
+            <a href="https://a-plus-team.github.io/">Want to go back? Just click here!</a>
         </div>
 
             
@@ -190,10 +191,10 @@ img {
             var dots = document.getElementsByClassName("demo");
             var captionText = document.getElementById("caption");
             if (n > slides.length) {
-                slideIndex = 1
+                slideIndex = 1;
         }
             if (n < 1) {
-                slideIndex = slides.length
+                slideIndex = slides.length;
         }
             for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
@@ -214,15 +215,15 @@ img {
     <img src="./images/kenya.png"  style="width:100%" alt="Kenyan Child" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
   </div>
   <div class="column">
-    <img src="./images/flintwater.jpg"  style="width:100%" alt="Water in Flint" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+    <img src="./images/flintwater.jpg"  style="width:100%" alt="Water in flint" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
   </div>
   <div class="column">
-    <img src="./images/bolivia.jpg"  style="width:100%" alt="Bolivian Children receiving water" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+    <img src="./images/bolivia.jpg"  style="width:100%" alt="Bolivian children receiving water" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
   </div>
   <div class="column">
     <img src="./images/northshore.png"  style="width:100%" alt="The North Shore" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
   </div>
-      <div class="column">
+  <div class="column">
     <img src="./images/bottled.png"  style="width:100%" alt="Bottles" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
   </div>
   <div class="column">
@@ -252,7 +253,7 @@ img {
   <div class="column">
     <img src="./images/droughtcape.jpg"  style="width:100%" alt="cape" onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
   </div>
-      <div class="column">
+  <div class="column">
     <img src="./images/wateringcan.jpg"  style="width:100%" alt="can" onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
   </div>
   <div class="column">
@@ -270,7 +271,7 @@ img {
   <div class="column">
     <img src="./images/graph.png"  style="width:100%" alt="graph" onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
   </div>
-      <div class="column">
+  <div class="column">
     <img src="./images/irrigation.jpg"  style="width:100%" alt="irrigation" onclick="openModal();currentSlide(21)" class="hover-shadow cursor">
   </div>
   <div class="column">
@@ -282,7 +283,7 @@ img {
   <div class="column">
     <img src="./images/Libya.jpg"  style="width:100%" alt="libyan" onclick="openModal();currentSlide(24)" class="hover-shadow cursor">
   </div>
-      <div class="column">
+  <div class="column">
     <img src="./images/syrian.jpg"  style="width:100%" alt="ref" onclick="openModal();currentSlide(25)" class="hover-shadow cursor">
   </div>
   <div class="column">
@@ -311,12 +312,12 @@ img {
 
     <div class="mySlides">
       <div class="numbertext">1 / 30</div>
-      <img src="./images/kenya.png" style="width:100%" alt="A Kenyan child collecting water">
+      <img src="./images/kenya.png" style="width:100%" alt="Kenyan child">
     </div>
 
     <div class="mySlides">
       <div class="numbertext">2 / 30</div>
-      <img src="./images/flintwater.jpg" style="width:100%" alt="Water conditions in Flint, MichigaN">
+      <img src="./images/flintwater.jpg" style="width:100%" alt="flint">
     </div>
 
     <div class="mySlides">
@@ -471,7 +472,7 @@ img {
 
 
     <div class="column">
-      <img class="demo cursor" src="./images/kenya.png" style="width:100%"  onclick="currentSlide(1)" alt="Kenyan Child">
+      <img class="demo cursor" src="./images/kenya.png" style="width:100%"  onclick="currentSlide(1)" alt="A Kenyan child collecting water">
     </div>
     <div class="column">
       <img class="demo cursor" src="./images/flintwater.jpg" style="width:100%"  onclick="currentSlide(2)" alt="Harmful lead in the water in Flint, Michigan, USA">
@@ -566,7 +567,7 @@ img {
 </div>
 
         </fieldset>
-            <button onclick="myFunction()">Press here for a neat fact about water!</button>
+        <button onclick="myFunction()">Press here for a neat fact about water!</button>
             <p id="demo"></p>
     </body>
 </html>
