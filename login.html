@@ -104,7 +104,7 @@
         function login() {
             var dbRefObject = firebase.database().ref('Users');
             var isUserValid = false;
-
+            var userKey;
 
             console.log(dataSnapshot.val());
 
@@ -123,6 +123,7 @@
 
                 if (childData['user_name'] == userName && childData['user_pwd'] == passWord) {
                     isUserValid = true;
+                    userKey = childKey;
                     console.log(userName + "+++" + passWord + "()" + isUserValid);
 
                 }
@@ -130,11 +131,15 @@
             console.log(userName + "***" + passWord + "()" + isUserValid);
 
             if (isUserValid == true) {
-                alert("User is valid. Login success");
                 console.log("User is valid. Login success");
                 // document.getElementById('loginresult').innerHTML = "User is Valid!";
 
                 //document.getElementById('status').innerHTML = "(Valid user)";
+                localStorage.setItem("loginStatus", "true");
+                localStorage.setItem("userKey", userKey);
+                localStorage.setItem("currentUser", userName);
+                localStorage.setItem("currentPwd", passWord);
+                alert("User is valid. Login success");
 
             } else {
                 alert("Not valid user!" + userName + " " + passWord);
