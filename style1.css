@@ -2,7 +2,7 @@
 #items0{left:188.11451942740288px;top:52.6109243697479px;height:13%;width:auto;position:absolute; visibility:hidden;} #items1{left:38.5480572597137px;top:230.11932773109243px;height:13%;width:auto;position:absolute; visibility:hidden;} #items2{left:301.44580777096115px;top:318.65966386554624px;height:13%;width:auto;position:absolute; visibility:hidden;}
 #base{
             
-        background-image: url("house10.png");
+        background-image: url("./game_images/house10.png");
         background-size: cover;
     }
 
