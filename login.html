@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="login-style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<img id = "sun" src="images/hp.png">
+				</button>
+                <a class="navbar-brand" href="index.html">
+                    <div id="title">Wave</div>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="Gallery.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Gallery</span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Photos.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Photos</span></a></li>
+                            <li><a href="#"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Videos</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="articles.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Articles</span></a></li>
+                    <li><a href="tips.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Tips</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="signup.html"><span class="glyphicon glyphicon-user" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Sign Up</span></a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Login</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="card card-container">
+            <a href="matrix.html"><img id="profile-img" class="profile-img-card" src="images/kids.jpeg" /></a>
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" method="GET">
+                <br>
+                <span id="reauth-email" class="reauth-email"></span>
+                <label for="uname"><b>Username</b></label>
+                <input type="text" id="username" class="form-control" placeholder="Username" required autofocus>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" id="password" class="form-control" placeholder="Password" required>
+
+                <div id="remember" class="checkbox">
+                    <label>
+				        <input type="checkbox" value="remember-me"> Remember me
+				    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" onclick="login()">Sign in</button>
+            </form>
+            <!-- /form -->
+            <br>
+            <span class="psw">No account? <a href="Signup.html">Sign up for new account</a></span>
+            <!--<a href="signup.html" class="signup">Don't have an account?</a>-->
+        </div>
+        <!-- /card-container -->
+    </div>
+    <!-- /container -->
+
+    <!-- This is used to config Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyDRQYn7si6Y_rnXzbpQcaO2cgktr1hbesE",
+            authDomain: "waave-a-plus.firebaseapp.com",
+            databaseURL: "https://waave-a-plus.firebaseio.com",
+            projectId: "waave-a-plus",
+            storageBucket: "waave-a-plus.appspot.com",
+            messagingSenderId: "286145905753"
+        };
+        firebase.initializeApp(config);
+
+    </script>
+
+    <script type="text/javascript">
+        var dbRefObject = firebase.database().ref('Users');
+        var dbRefDummyObject = firebase.database().ref('Users/dummy');
+
+        var dataSnapshot;
+
+        dbRefObject.once('value', function(snapshot) {
+            //alert("I am in the reading function." + userName + ": " + passWord);
+            console.log("In once() method.");
+            //            console.log(snapshot.val());
+
+            dataSnapshot = snapshot;
+
+        });
+
+
+        function login() {
+            var dbRefObject = firebase.database().ref('Users');
+            var isUserValid = false;
+
+
+            console.log(dataSnapshot.val());
+
+
+            var userName = document.getElementById('username').value;
+            var passWord = document.getElementById('password').value;
+
+            console.log(userName + "---" + passWord + "()" + isUserValid);
+
+            dataSnapshot.forEach(function(childSnapshot) {
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+
+                console.log(childKey + " " + childData['user_name'] + " " + childData['user_pwd'] + " " +
+                    childData['user_score']);
+
+                if (childData['user_name'] == userName && childData['user_pwd'] == passWord) {
+                    isUserValid = true;
+                    console.log(userName + "+++" + passWord + "()" + isUserValid);
+
+                }
+            });
+            console.log(userName + "***" + passWord + "()" + isUserValid);
+
+            if (isUserValid == true) {
+                alert("User is valid. Login success");
+                console.log("User is valid. Login success");
+                // document.getElementById('loginresult').innerHTML = "User is Valid!";
+
+                //document.getElementById('status').innerHTML = "(Valid user)";
+
+            } else {
+                alert("Not valid user!" + userName + " " + passWord);
+                console.log("User is Invalid. Login fail");
+
+                //document.getElementById('loginresult').innerHTML = "User is inValid!";
+
+                //document.getElementById('status').innerHTML = "(InValid user)";
+
+            }
+
+            isUserValid = false;
+
+        }
+
+    </script>
+
+
+    <!--<script src="./js/login.js"></script>-->
+    <!-- <script> -->
+		<!-- //var body = document.getElementsByTagName('body'); -->
+		<!-- $('#profile-img').doubletap(function() { -->
+		  <!-- $('body').html('matrix.html'); -->
+		<!-- }); -->
+		<!-- </script> -->
+</body>
+
+</html>

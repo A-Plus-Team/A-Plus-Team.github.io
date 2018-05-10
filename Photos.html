@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Photos</title>
+    <meta charset="utf-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @font-face {
+            font-family: 'grinchedregular';
+            src: url('fonts/grinchedregular-webfont.woff2') format('woff2'),
+            url('fonts/grinchedregular-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
+        body {
+            background-image: url('images/bg5.jpg');
+        }
+
+        .navbar-toggle {
+            float: left;
+            border: none;
+        }
+
+        .navbar-header {
+            height: 85px;
+            background: #2e61a0;
+            border: 1px white solid;
+        }
+
+        #title {
+            font-size: 30pt;
+            margin-left: 40%;
+            margin-top: 20%;
+            font-family: grinchedregular;
+            color: cyan;
+        }
+
+        #sun {
+            height: 50px;
+            weight: 50px;
+        }
+
+        .collapse {
+            background-color: white;
+        }
+
+        .collapse .nav .dropdown .dropdown-toggle:active {
+            background-color: gray;
+        }
+
+        .collapse .nav .dropdown .dropdown-toggle:visited {
+            background-color: gray;
+        }
+
+        #section {
+            text-align: center;
+            table-layout: auto;
+            padding: 5%;
+            float: left;
+
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 60px;
+            font-family: grinchedregular;
+        }
+
+        button {
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row>.column {
+            padding: 0 8px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column {
+            float: left;
+            width: 25%;
+            border: 2px black solid;
+        }
+
+        /* The Modal (background) */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: black;
+        }
+
+        /* Modal Content */
+
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* The Close Button */
+
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .mySlides {
+            width: auto;
+            height: 250px;
+            background-color: black;
+            display: none;
+        }
+
+        .cursor {
+            cursor: pointer
+        }
+
+        /* Next & previous buttons */
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Number text (1/3 etc) */
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        img {
+            margin-bottom: -4px;
+        }
+
+        .caption-container {
+            text-align: center;
+            background-color: black;
+            padding: 2px 16px;
+            color: white;
+        }
+
+        .demo {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<img id = "sun" src="images/hp.png">
+				</button>
+                <a class="navbar-brand" href="index.html">
+                    <div id="title">Wave</div>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="Gallery.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Gallery</span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Photos.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Photos</span></a></li>
+                            <li><a href="#"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Videos</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="articles.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Articles</span></a></li>
+                    <li><a href="tips.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Tips</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="signup.html"><span class="glyphicon glyphicon-user" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Sign Up</span></a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Login</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="container">
+
+        <h1>Gallery</h1>
+    </div>
+
+    <button onclick="myFunction()">Press here for a neat fact about water!</button>
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "<b>Did you know that every Canadian uses about 329 Litres of water per day?</b>";
+        }
+
+        function openModal() {
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
+    <fieldset>
+
+        <div class="row">
+            <div class="column">
+                <img src="./images/kenya.png" style="width:100%; height: 60px;" alt="Kenyan Child" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/flintwater.jpg" style="width:100%; height: 60px;" alt="Water in Flint" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/bolivia.jpg" style="width:100%; height: 60px;" alt="Bolivian Children receiving water" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/northshore.png" style="width:100%; height: 60px;" alt="The North Shore" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/bottled.png" style="width:100%; height: 60px;" alt="Bottles" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/stanleypark.jpg" style="width:100%; height: 60px;" alt="Stan" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/brushing.jpg" style="width:100%; height: 60px;" alt="Brush" onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/toilet.jpg" style="width:100%; height: 60px;" alt="flush" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/laundry.jpg" style="width:100%; height: 60px;" alt="load" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/Tapwater.jpg" style="width:100%; height: 60px;" alt="load" onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/sprinkler.jpg" style="width:100%; height: 60px;" alt="sprinklers" onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/showerhead.jpg" style="width:100%; height: 60px;" alt="shower" onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/droughtca.jpg" style="width:100%; height: 60px;" alt="ca" onclick="openModal();currentSlide(13)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/droughtcape.jpg" style="width:100%; height: 60px;" alt="cape" onclick="openModal();currentSlide(14)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/wateringcan.jpg" style="width:100%; height: 60px;" alt="can" onclick="openModal();currentSlide(15)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/northvandam.jpg" style="width:100%; height: 60px;" alt="northvan" onclick="openModal();currentSlide(16)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/capilano.jpg" style="width:100%; height: 60px;" alt="cap" onclick="openModal();currentSlide(17)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/southsudan.jpg" style="width:100%; height: 60px;" alt="sudan" onclick="openModal();currentSlide(18)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/Nicaragua.jpg" style="width:100%; height: 60px;" alt="managua" onclick="openModal();currentSlide(19)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/graph.png" style="width:100%; height: 60px;" alt="graph" onclick="openModal();currentSlide(20)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/irrigation.jpg" style="width:100%; height: 60px;" alt="irrigation" onclick="openModal();currentSlide(21)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/salmonrun.png" style="width:100%; height: 60px;" alt="run" onclick="openModal();currentSlide(22)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/yemen.jpg" style="width:100%; height: 60px;" alt="yemeni" onclick="openModal();currentSlide(23)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/Libya.jpg" style="width:100%; height: 60px;" alt="libyan" onclick="openModal();currentSlide(24)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/syrian.jpg" style="width:100%; height: 60px;" alt="ref" onclick="openModal();currentSlide(25)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/windpump.jpg" style="width:100%; height: 60px;" alt="mill" onclick="openModal();currentSlide(26)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/deforestation.jpg" style="width:100%; height: 60px;" alt="amazon" onclick="openModal();currentSlide(27)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/great-lakes.jpg" style="width:100%; height: 60px;" alt="lakes" onclick="openModal();currentSlide(28)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/glacier.jpg" style="width:100%; height: 60px;" alt="ice" onclick="openModal();currentSlide(29)" class="hover-shadow cursor">
+            </div>
+            <div class="column">
+                <img src="./images/springwater.jpg" style="width:100%; height: 60px;" alt="spring" onclick="openModal();currentSlide(30)" class="hover-shadow cursor">
+            </div>
+
+
+
+        </div>
+
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+                <div class="mySlides">
+                    <div class="numbertext">1 / 30</div>
+                    <img src="./images/kenya.png" style="width:100%" alt="A Kenyan child collecting water">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">2 / 30</div>
+                    <img src="./images/flintwater.jpg" style="width:100%" alt="Water conditions in Flint, MichigaN">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">3 / 30</div>
+                    <img src="./images/bolivia.jpg" style="width:100%" alt="Bolivian children receiving water">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">4 / 30</div>
+                    <img src="./images/northshore.png" style="width:100%" alt="The North Shore">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">5 / 30</div>
+                    <img src="./images/bottled.png" style="width:100%" alt="Bottles">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">6 / 30</div>
+                    <img src="./images/stanleypark.jpg" style="width:100%" alt="Stan">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">7 / 30</div>
+                    <img src="./images/brushing.jpg" style="width:100%" alt="brush">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">8 / 30</div>
+                    <img src="./images/toilet.jpg" style="width:100%" alt="flush">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">9 / 30</div>
+                    <img src="./images/laundry.jpg" style="width:100%" alt="load">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">10 / 30</div>
+                    <img src="./images/Tapwater.jpg" style="width:100%" alt="tap">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">11 / 30</div>
+                    <img src="./images/sprinkler.jpg" style="width:100%" alt="sprinkler">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">12 / 30</div>
+                    <img src="./images/showerhead.jpg" style="width:100%" alt="shower">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">13 / 30</div>
+                    <img src="./images/droughtca.jpg" style="width:100%" alt="ca">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">14 / 30</div>
+                    <img src="./images/droughtcape.jpg" style="width:100%" alt="cape">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">15 / 30</div>
+                    <img src="./images/wateringcan.jpg" style="width:100%" alt="can">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">16 / 30</div>
+                    <img src="./images/northvandam.jpg" style="width:100%" alt="northvan">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">17 / 30</div>
+                    <img src="./images/capilano.jpg" style="width:100%" alt="cap">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">18 / 30</div>
+                    <img src="./images/southsudan.jpg" style="width:100%" alt="sudan">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">19 / 30</div>
+                    <img src="./images/Nicaragua.jpg" style="width:100%" alt="managua">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">20 / 30</div>
+                    <img src="./images/graph.png" style="width:100%" alt="tap">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">21 / 30</div>
+                    <img src="./images/irrigation.jpg" style="width:100%" alt="irrigation">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">22 / 30</div>
+                    <img src="./images/salmonrun.png" style="width:100%" alt="run">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">23 / 30</div>
+                    <img src="./images/yemen.jpg" style="width:100%" alt="yemeni">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">24 / 30</div>
+                    <img src="./images/Libya.jpg" style="width:100%" alt="libyan">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">25 / 30</div>
+                    <img src="./images/syrian.jpg" style="width:100%" alt="ref">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">26 / 30</div>
+                    <img src="./images/windpump.jpg" style="width:100%" alt="mill">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">27 / 30</div>
+                    <img src="./images/deforestation.jpg" style="width:100%" alt="amazon">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">28 / 30</div>
+                    <img src="./images/great-lakes.jpg" style="width:100%" alt="lakes">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">29 / 30</div>
+                    <img src="./images/glacier.jpg" style="width:100%" alt="ice">
+                </div>
+
+                <div class="mySlides">
+                    <div class="numbertext">30 / 30</div>
+                    <img src="./images/springwater.jpg" style="width:100%" alt="spring">
+                </div>
+
+
+
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                <div class="caption-container">
+                    <p id="caption"></p>
+                </div>
+
+
+                <div class="column">
+                    <img class="demo cursor" src="./images/kenya.png" style="width:100%" onclick="currentSlide(1)" alt="Kenyan Child">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/flintwater.jpg" style="width:100%" onclick="currentSlide(2)" alt="Harmful lead in the water in Flint, Michigan, USA">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/bolivia.jpg" style="width:100%" onclick="currentSlide(3)" alt="Bolivian children receiving water">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/northshore.png" style="width:100%" onclick="currentSlide(4)" alt="The North Shore">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/bottled.png" style="width:100%" onclick="currentSlide(5)" alt="Bottles of clean drinking water">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/stanleypark.jpg" style="width:100%" onclick="currentSlide(6)" alt="Beautiful Stanley Park">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/brushing.jpg" style="width:100%" onclick="currentSlide(7)" alt="A young girl brushing her teeth with the tap running">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/toilet.jpg" style="width:100%" onclick="currentSlide(8)" alt="A toilet being flushed">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/laundry.jpg" style="width:100%" onclick="currentSlide(9)" alt="Clothes ready for a laundry cycle">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/Tapwater.jpg" style="width:100%" onclick="currentSlide(10)" alt="Running water on a tap. Make sure to turn this off!">
+                </div>
+
+                <div class="column">
+                    <img class="demo cursor" src="./images/sprinkler.jpg" style="width:100%" onclick="currentSlide(11)" alt="Sprinklers on a summer day. They can help you cool off, but try not to overuse them!">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/showerhead.jpg" style="width:100%" onclick="currentSlide(12)" alt="Running water on a shower head. Try to keep your baths/showers as short as possible to save water!">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/droughtca.jpg" style="width:100%" onclick="currentSlide(13)" alt="A drought at a reservoir in California">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/droughtcape.jpg" style="width:100%" onclick="currentSlide(14)" alt="A mostly empty reservoir in Cape Town, South Africa">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/wateringcan.jpg" style="width:100%" onclick="currentSlide(15)" alt="A watering can in action">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/northvandam.jpg" style="width:100%" onclick="currentSlide(16)" alt="A dam in North Vancouver">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/capilano.jpg" style="width:100%" onclick="currentSlide(17)" alt="The Capilano Reservoir in North Vancouver">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/southsudan.jpg" style="width:100%" onclick="currentSlide(18)" alt="A South Sudanese woman carrying water">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/Nicaragua.jpg" style="width:100%" onclick="currentSlide(19)" alt="Nicaraguans carrying water during a drought">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/graph.png" style="width:100%" onclick="currentSlide(20)" alt="A map that measures the water scarcity in different parts of the world">
+                </div>
+
+                <div class="column">
+                    <img class="demo cursor" src="./images/irrigation.jpg" style="width:100%" onclick="currentSlide(21)" alt="A large area of crops being watered at the same time. This is a process called irrigation">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/salmonrun.png" style="width:100%" onclick="currentSlide(22)" alt="A salmon run in progress. Make sure to keep these little guys in mind when you're using water!">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/yemen.jpg" style="width:100%" onclick="currentSlide(23)" alt="Children in Yemen carrying water during a water crisis">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/Libya.jpg" style="width:100%" onclick="currentSlide(24)" alt="People in Libya collecting water during a water crisis">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/syrian.jpg" style="width:100%" onclick="currentSlide(25)" alt="A Syrian child refugee carrying water in a camp in Jordan">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/windpump.jpg" style="width:100%" onclick="currentSlide(26)" alt="A type of windmill known as a windpump that is used for pumping water. Installing one of these in affected areas can make a difference in maintaining a clean water supply">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/deforestation.jpg" style="width:100%" onclick="currentSlide(27)" alt="The act of deforestation in areas like the Amazon have starved these areas of water">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/great-lakes.jpg" style="width:100%" onclick="currentSlide(28)" alt="The great lakes in North America contain over 20% of the world's fresh water in volume">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/glacier.jpg" style="width:100%" onclick="currentSlide(29)" alt="3% of the world's fresh water is contained in glaciers & ice sheets such as these">
+                </div>
+                <div class="column">
+                    <img class="demo cursor" src="./images/springwater.jpg" style="width:100%" onclick="currentSlide(30)" alt="The safest kind of drinking water comes from springs such as this because the water has already been naturally filtered and cleaned by the Earth">
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+</body>
+</html>
