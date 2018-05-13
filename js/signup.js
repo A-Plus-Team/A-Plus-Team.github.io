@@ -1,5 +1,5 @@
 //get elements
-var preObject = document.getElementById('object');
+//var preObject = document.getElementById('object');
 
 //create reference
 var dbRefObject = firebase.database().ref().child('Users');
@@ -16,6 +16,7 @@ function signup() {
 
     if (pwd1 != pwd2) {
         isPwdNotEqual = true;
+        alert("Password are not equal");
 
     } else {
         dbRefObject.once('value', function (snapshot) {
@@ -24,19 +25,22 @@ function signup() {
                 var childData = childSnapshot.val();
                 //console.log(childKey + " " + childData); // ...
 
-                if (user_name == childData['first']) {
+                if (user_name == childData['username']) {
                     isUserRepeat = true;
                 }
             });
 
             if (isUserRepeat == true) {
                 // document.getElementById('resultDisp').innerHTML = "Forget Password  (User Repeat)";
+
                 console.log("Repeat user");
 
-                dbRefObject.push().set({
-                    name: user_name,
-                    password: pwd1
-                });
+                alert("Repeat user!")
+
+                /*           dbRefObject.push().set({
+                               name: user_name,
+                               password: pwd1
+                           });*/
 
             } else {
                 dbRefObject.push().set({
@@ -46,11 +50,11 @@ function signup() {
             }
         });
 
-        dbRefObject.push().set({
+        /*     dbRefObject.push().set({
             name: user_name,
             password: pwd2
         });
-
+*/
     }
 
     /*

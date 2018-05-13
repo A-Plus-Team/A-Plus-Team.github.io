@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'gwibbleregular';
+    src: url('fonts/gwibble_-webfont.woff2') format('woff2'),
+         url('fonts/gwibble_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+		@font-face {
+    font-family: 'grinchedregular';
+    src: url('fonts/grinchedregular-webfont.woff2') format('woff2'),
+         url('fonts/grinchedregular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+  	.navbar-toggle{
+    float: left;
+		border: none;
+		}
+		.navbar-header{
+		height: 85px;
+		background: #2e61a0;
+		border: 1px white solid;
+		}
+		#title{
+		font-size: 30pt;
+		margin-left: 40%;
+		margin-top: 20%;
+		font-family: grinchedregular ;
+		color: cyan;
+		}
+		#sun{
+		height: 50px;
+		weight:50px;
+		}
+		.collapse{
+		background-color: white;
+		}
+		.collapse  .nav .dropdown .dropdown-toggle:active{
+		background-color: gray;
+    }
+		.collapse  .nav .dropdown .dropdown-toggle:visited{
+		background-color: gray;
+		}
+
+
+h3{
+    margin-left: 48%;
+    
+    }
+.mx-auto{
+     margin-left:;
+    font-size: 30px;
+}
+
+.row{
+    margin-left: 0%;
+}
+
+#Articles{
+    margin-left: 36%;
+}
+
+
+
+.img-responsive{
+    height: 120px;
+    width: 120px;
+}
+
+body{
+    background-image: url(images/bg5.jpg);
+}
+
+#Articles{
+    font-family: 'Titan One', cursive;
+        font-Size: 35px;
+}
+
+.margin-t-h{
+margin-left: 140px;
+    margin-top: -90px;
+    font-size: 20px;
+    font-family: 'Pangolin', cursive;
+}
+
+
+
