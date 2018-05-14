@@ -100,7 +100,7 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
+                    <li class="active"><a href="https://a-plus-team.github.io/" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="Gallery.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Gallery</span><span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -129,14 +129,39 @@
 
         </div>
         <script>
+            var day;
+            switch (new Date().getDay()) {
+                case 0:
+                    day = "There is more fresh water located in the atmosphere than in all of the rivers on Earth combined.";
+                    break;
+                case 1:
+                    day = "The Great Lakes provide drinking water to 8.5 million Canadians.";
+                    break;
+                case 2:
+                    day = "Around 68 percent of the world's fresh water is located inside of glaciers and ice caps. 30 percent is located underground.";
+                    break;
+                case 3:
+                    day = "9 percent of Canada's total area is made up of fresh water";
+                    break;
+                case 4:
+                    day = "80 percent of all diseases in developing countries are water-related.";
+                    break; 
+                case 5:
+                    day = "Residential indoor water use in Canada: toilet – 30 percent; bathing & showering – 35 percent; laundry – 20 percent; kitchen and drinking – 10 percent; cleaning – 5 percent";
+                    break;
+                case 6:
+                    day = "780 million people worldwide lack access to a clean water source.";
+
+            }
+            
             function myFunction() {
-            document.getElementById("demo").innerHTML = "<b>Around 68% of the world's fresh water is located inside of glaciers and ice caps. 30% is located underground.</b>";
+            document.getElementById("demo").innerHTML = "Did you know? " + day;
         }
         </script>
         
         <fieldset>
             
-        <button onclick="myFunction()">Press here for a neat fact about water!</button>
+        <button onclick="myFunction()">Press here for a neat water fact of the day!</button>
         <p id="demo"></p>
             
             
