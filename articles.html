@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Articles</title>
+<title>Articles sdsdf</title>
 <meta charset="utf-8">
 
     
@@ -10,17 +11,50 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    
+    <style>
+    #back_img{
+        
+            width: 375px;
+            height: 900px;
+            background-image:url('images/bg5.jpg');
+            -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+        }
+        #topcontent {
+            position: absolute;
+            margin-top: -900px;
+        }
+        
+    </style>
     
 
 </head>
-<body>	<nav class="navbar navbar-inverse">
+<body>	
+    <div id = "back_img"></div>
+    <div id = "topcontent">
+    
+    <nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 					<img id = "sun" src="images/hp.png">
 				</button>
 				<a class="navbar-brand" href="index.html"><div id = "title">Wave</div></a>
+				<button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-user" id="logged"></span>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	<ul class="nav">
+	<li>
+    <a class="dropdown-item" href="#">UserName</a>
+		</li><li>
+    <a class="dropdown-item" href="#">Score</a></li><li>
+    <a class="dropdown-item" href="#">Logout</a></li>
+ 
+</div>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -51,49 +85,54 @@
 </div>
     <br>
     
-    <gcse:search></gcse:search>
+    
+				<gcse:search></gcse:search>
+            
 				<div class="col-sm-8">
-    <figure class="margin-b-2">
+    <a href = "https://www.epa.gov/watersense/watersense-kids" target="_blank"><figure class="margin-b-2">
 						<img class="img-responsive" src="images/Article1.JPG" alt="">
-						<a href = "Articles_1.html"><figcaption class="margin-t-h">Why We Should Conserve Water</figcaption>
-                         </a>   
-                    </figure>
+						<figcaption class="margin-t-h">Why We Should Conserve Water</figcaption>
+					</figure>
+        </a>
                     <br>
                     <br>
                     <br>
                     <br>    
-                    <figure class="margin-b-2">
+                    <a href = "http://www.bayareaparent.com/Article/Water-Conservation-for-Kids/" target="_blank"><figure class="margin-b-2">
 						<img class="img-responsive" src="images/Article2.JPG" alt="">
 						<figcaption class="margin-t-h">Conserving Water, One Drop at a Time</figcaption>
+                        
 					</figure>
+                        </a>
                     <br>
                     <br>
                     <br>
                     <br>
                     
                     
-                    <figure class="margin-b-2">
+                    <a href = "https://quiethut.com/water-conservation-for-kids/" target = "_blank"><figure class="margin-b-2">
 						<img class="img-responsive" src="images/Article3.JPG" alt="">
-						<figcaption class="margin-t-h">HOW WE CAN SAVE WATER</figcaption>
+						<figcaption class="margin-t-h">HOW KIDS CAN SAVE WATER</figcaption>
 					</figure>
+                        </a>
                     <br>
                     <br>
                     <br>
                     <br>
-                    <figure class="margin-b-2">
+                    <a href = "https://www.ri-industries.com.au/how-to-teach-kids-about-water-conservation/" target = "_blank"><figure class="margin-b-2">
 						<img class="img-responsive" src="images/Article4.JPG" alt="">
-						<figcaption class="margin-t-h">WATER CONSERVATION</figcaption>
+						<figcaption class="margin-t-h">How to Learn to save water</figcaption>
 					</figure>
+                        </a>
                     <br>
                     <br>
                     <br>
                     <br>
-
-        
-        </div>    
-    
+    </div>
+    </div>
     
     <script src="javascript.js"></script> 
 
     </body>
     </html>
+
