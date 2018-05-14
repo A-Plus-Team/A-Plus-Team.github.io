@@ -12,7 +12,7 @@ to save the water.
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="style1.css"/>
 </head>
-<body onload="randFunction();">
+<body>
     <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
         <p><b>Save Our Water!</b></p>
     </div>
@@ -42,11 +42,74 @@ to save the water.
          style="position:absolute;  bottom:0px; width:90px; height:200px; border: solid; background-color: azure;"> <div id="water"></div>
     </div></div>
     <br>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="./js/dBAPIs.js"></script>
     <script>
         var waterLevel = 200;
         var score = 0;
         var time = 0;
-        var image;
+        var yn = 0;
+        
+        if(localStorage.getItem("userKey") == "null"){
+            var div1 = document.createElement("div");
+            div1.setAttribute("id","gamestart");
+            div1.style.position = "absolute";
+            div1.style.top = "180px";
+            div1.style.left = "25px";
+            div1.style.width = "320px";
+            div1.style.height = "200px";
+            div1.style.backgroundColor = "#382F71";
+            div1.style.opacity = "0.9";
+            div1.style.border = "solid";
+            div1.style.zIndex = "6";
+            div1.style.textAlign = "center";
+            div1.style.fontSize = "30px";
+            div1.style.color = "azure";
+            div1.innerHTML = "<br>Do you want to log in?<br><input type='button' value='yes' onclick='ynFunction1()'/><br><input type='button' value='no' onclick='ynFunction2()'/><br>";
+            document.body.appendChild(div1);
+        }else{
+            randFunction();
+        }        
+        function scoreLine(){
+            var tmpStr ="";
+            
+            var div = document.createElement("div");
+            div.style.position = "absolute";
+            div.style.top = "50px";
+            div.style.left = "50px";
+            div.style.width = "280px";
+            div.style.height = "400px";
+            div.style.backgroundColor = "azure";
+            div.style.opacity = "0.9";
+            div.style.border = "solid";
+            div.style.zIndex = "5";
+            tmpStr += "<table style='position:absolute; left:25px; top:25px; text-align:center;'cellspacing='20';><thead><tr><td>RANK</td><td>NAME</td><td>SCORE</td></tr></thead>"; 
+            var rank = 1;
+            var iter = 0;
+            var arr = [];
+            loadScore().forEach(function(childSnapshot) {
+            var childKey = childSnapshot.key;
+            var childData = childSnapshot.val();
+            arr[iter++] = childData;
+            for(var i = 0 ; i < arr.length; i++){
+            for(var j = i+1 ; j < arr.length ; j++){
+                if(arr[i]['user_score'] < arr[j]['user_score']){
+                var tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+                }
+            }}
+            });
+            for(var i = 0 ; i < arr.length ; i++){
+                tmpStr += "<tr><td>" + rank++ + "</td><td>" + arr[i]['user_name'] + "</td><td>" + arr[i]['user_score'] + "</td></tr>";
+            }
+            tmpStr += "<tfoot><tr><input type='button' value='Restart!' onclick='location.reload()'/><input type='button' value='Main Page' onclick='ynFunction2()'/></tr></tfoot></table>";
+            div.innerHTML = tmpStr;
+            document.body.removeChild(document.getElementById("gameover"));
+            document.body.appendChild(div);
+        }
+        
+        
         var blockVariables = [];
         for(var i = 0 ; i<10 ; i++){
             blockVariables[i] = false;
@@ -64,11 +127,11 @@ to save the water.
         }
         function blocksFunction(e){
             e.target.style.visibility = "hidden";
-            waterLevel += 10;
+            waterLevel += 10/2;
             document.getElementById("water").style.height = waterLevel + "px";
         }
         
-
+        var truePrac = true;
         function randFunction() {
             setInterval(function(){ 
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
@@ -98,23 +161,51 @@ to save the water.
             }
             for(var i = 0 ; i < 10 ; i++){
                 if(blockVariables[i]){
-                waterLevel -= 0.2;
+                waterLevel -= 1.0;
+                var tmpStr = "";
+                if(truePrac){
+                if(waterLevel <= 0){
+                   truePrac = false;
+                    saveScore(score);
                     
-//                if(waterLevel <= 0){
-//                    popUpGameOver();
-//                    var leadusers;
-//                    if(save(score)){
-//                        leadusers = load();
-//                    }
-//                    popUpLeadBoard();
-//                }
+                    var div1 = document.createElement("div");
+                    div1.setAttribute("id","gameover");
+                    div1.style.position = "absolute";
+                    div1.style.top = "180px";
+                    div1.style.left = "25px";
+                    div1.style.width = "320px";
+                    div1.style.height = "200px";
+                    div1.style.backgroundColor = "#382F71";
+                    div1.style.opacity = "0.9";
+                    div1.style.border = "solid";
+                    div1.style.zIndex = "6";
+                    div1.style.textAlign = "center"; 
+                    div1.style.fontSize = "30px";
+                    div1.style.color = "azure";
+                    div1.innerHTML = "<br>Game Over<br><input type='button' value='Restart!' onclick='location.reload()'/><br><input type='button' value='Main Page' onclick='ynFunction2()'/><br><input type='button' value='Leader Board' onclick='scoreLine()'/>";
+                    document.body.appendChild(div1);
+                }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
                 }
+                }
             }}, 200);
          }
+        function ynFunction1(){
+            window.location.href="login.html";
+        }
+        function ynFunction2(){
+            window.location.href="index.html";
+        }
     </script>
+    
+    
     <div style="position:absolute; top:589px; left:0px; height:80px; width:375px; border:solid 1px; background-color:#382F71;border:solid 1px;"></div>
+    
+    
+                        
+    
+    
     
 </body>
 </html>
