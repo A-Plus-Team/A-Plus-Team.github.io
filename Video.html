@@ -147,7 +147,186 @@
                 
                 if (i == 0) {
             document.getElementById("demo").innerHTML = "Did you know? " + day;
+                    i = i + <!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="Style/Style_ArmanAvila.css" />
+        <title>Wave</title>
+        <style>
+        body {
+            background-color: paleturquoise;
+            font-family: grinchedregular;
+
+        }
+            
+        h1 {
+            text-align: center;
+            font-size: 80px;
+            color: lightseagreen;
+            font-family: grinchedregular;
+        }
+            
+         .navbar-toggle {
+            float: left;
+            border: none;
+        }
+
+        .navbar-header {
+            height: 85px;
+            background: #2e61a0;
+            border: 1px white solid;
+        }                   
+
+            
+            
+            
+        #title {
+            font-size: 30pt;
+            margin-left: 40%;
+            margin-top: 20%;
+            font-family: grinchedregular;
+            color: cyan;
+        }
+
+        #sun {
+            height: 50px;
+            weight: 50px;
+        }
+
+        .collapse {
+            background-color: white;
+        }
+
+        .collapse .nav .dropdown .dropdown-toggle:active {
+            background-color: gray;
+        }
+
+        .collapse .nav .dropdown .dropdown-toggle:visited {
+            background-color: gray;
+        }
+            
+            @font-face {
+            font-family: 'grinchedregular';
+            src: url('fonts/grinchedregular-webfont.woff2') format('woff2'),
+            url('fonts/grinchedregular-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+            
+        </style>
+    </head>
+    <body>
+        
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<img id = "sun" alt="sun" src="images/hp.png">
+				</button>
+                <a class="navbar-brand" href="index.html">
+                    <div id="title">Wave</div>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="https://a-plus-team.github.io/" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="Gallery.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Gallery</span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Photos.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Photos</span></a></li>
+                            <li><a href="Video.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Videos</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="articles.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Articles</span></a></li>
+                    <li><a href="tips.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Tips</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="signup.html"><span class="glyphicon glyphicon-user" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Sign Up</span></a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Login</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div  id="container">
+
+        <h1>Video Gallery</h1>
+        <div id="bio">
+            <p>Now, here's a little video gallery for all of you.</p>
+            
+
+        </div>
+        <script>
+            var day;
+            switch (new Date().getDay()) {
+                case 0:
+                    day = "There is more fresh water located in the atmosphere than in all of the rivers on Earth combined.";
+                    break;
+                case 1:
+                    day = "The Great Lakes provide drinking water to 8.5 million Canadians.";
+                    break;
+                case 2:
+                    day = "Around 68 percent of the world's fresh water is located inside of glaciers and ice caps. 30 percent is located underground.";
+                    break;
+                case 3:
+                    day = "9 percent of Canada's total area is made up of fresh water";
+                    break;
+                case 4:
+                    day = "80 percent of all diseases in developing countries are water-related.";
+                    break; 
+                case 5:
+                    day = "Residential indoor water use in Canada: toilet – 30 percent; bathing & showering – 35 percent; laundry – 20 percent; kitchen and drinking – 10 percent; cleaning – 5 percent";
+                    break;
+                case 6:
+                    day = "780 million people worldwide lack access to a clean water source.";
+
+            }
+            var i = 0;
+            function myFunction() {
+                
+                if (i == 0) {
+            document.getElementById("demo").innerHTML = "Did you know? " + day;
                     i = i + 1;
+                    }
+                else {
+                    document.getElementById("demo").innerHTML = "";
+                    i = i - 1;
+                }
+                
+                
+        }
+        </script>
+        
+        <fieldset>
+            
+        <button onclick="myFunction()">Water fact for today!</button>
+        <p id="demo"></p>
+            
+            
+            
+            <iframe style="width:100%" src="https://www.youtube.com/embed/VIaw5mCjHPI">
+            </iframe><br>
+
+            <iframe style="width:100%" src="https://www.youtube.com/embed/BCHhwxvQqxg">
+            </iframe><br>
+
+            <iframe style="width:100%" src="https://www.youtube.com/embed/zCheAcpFkL8">
+            </iframe>
+        </fieldset>
+        
+    </div>
+    </body>
+</html>
+1;
                     }
                 else {
                     document.getElementById("demo").innerHTML = "";
