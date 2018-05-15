@@ -27,32 +27,32 @@
   <div class="dropdown-menu" id="menu" aria-labelledby="dropdownMenuButton">
 	<ul class="nav">
 	<li>
-    <a class="dropdown-item" id="username"></a>
+    <a class="dropdown-item" id="item1"></a>
 		</li><li>
-    <a class="dropdown-item" id="logout"></a></li></ul>
+    <a class="dropdown-item" id="item2"></a></li></ul>
  
 </div>
 			</div>
 			<script>
       if(localStorage.getItem("loginStatus") == "true") {
 			var name;
-			var a1 = document.getElementById("username");
+			var a1 = document.getElementById("item1");
 			name = localStorage.getItem("currentUser");
 			var text= document.createTextNode(name);
 			a1.appendChild(text);
 			
-			var a2 = document.getElementById("logout");
+			var a2 = document.getElementById("item2");
 			var text2 = document.createTextNode("Log-out");
 			a2.setAttribute("onclick", "logout()");
 			a2.setAttribute("href", "index.html");
 			a2.appendChild(text2);
       } else{
-			var a1 = document.getElementById("username");
+			var a1 = document.getElementById("item1");
 			var text = document.createTextNode("Log-in");
 			a1.setAttribute("href", "login.html");
 			a1.appendChild(text); 
 			
-			var a2 = document.getElementById("logout");
+			var a2 = document.getElementById("item2");
 			var text2 = document.createTextNode("Sign-up");
 			a2.setAttribute("href", "signup.html");
 			a2.appendChild(text2);
