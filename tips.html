@@ -108,27 +108,56 @@
 					<img id = "sun" src="images/hp.png">
 				</button>
 				<a class="navbar-brand" href="index.html"><div id = "title">Wave</div></a>
-				<button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+						  <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
     <span class="glyphicon glyphicon-user" id="logged"></span>
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <div class="dropdown-menu" id="menu" aria-labelledby="dropdownMenuButton">
 	<ul class="nav">
 	<li>
-    <a class="dropdown-item" href="#">UserName</a>
+    <a class="dropdown-item" id="username"></a>
 		</li><li>
-    <a class="dropdown-item" href="#">Score</a></li><li>
-    <a class="dropdown-item" href="#">Logout</a></li>
+    <a class="dropdown-item" id="logout"></a></li></ul>
  
 </div>
 			</div>
+			<script>
+      if(localStorage.getItem("loginStatus") == "true") {
+			var name;
+			var a1 = document.getElementById("username");
+			name = localStorage.getItem("currentUser");
+			var text= document.createTextNode(name);
+			a1.appendChild(text);
+			
+			var a2 = document.getElementById("logout");
+			var text2 = document.createTextNode("Log-out");
+			a2.setAttribute("onclick", "logout()");
+			a2.setAttribute("href", "index.html");
+			a2.appendChild(text2);
+      } else{
+			var a1 = document.getElementById("username");
+			var text = document.createTextNode("Log-in");
+			a1.setAttribute("href", "login.html");
+			a1.appendChild(text); 
+			
+			var a2 = document.getElementById("logout");
+			var text2 = document.createTextNode("Sign-up");
+			a2.setAttribute("href", "signup.html");
+			a2.appendChild(text2);
+			}
+			function logout(){
+			localStorage.setItem("loginStatus", "false");
+			}
+			
+			
+			</script>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
+					<li class="active"><a href="index.html" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="Gallery.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Gallery</span><span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="Photos.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Photos</span></a></li>
-							<li><a href="#"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Videos</span></a></li>
+							<li><a href="Video.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Videos</span></a></li>
 						</ul>
 					</li>
 					<li><a href="articles.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Articles</span></a></li>
