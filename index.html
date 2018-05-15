@@ -1,236 +1,169 @@
 <!DOCTYPE html>
+
 <html lang="en">
-	<head>
-    <title>Wave-Home</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		 <style>
-		 @font-face {
-    font-family: 'gwibbleregular';
-    src: url('fonts/gwibble_-webfont.woff2') format('woff2'),
-         url('fonts/gwibble_-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    <head>
+        <meta charset="utf-8" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="Style/Style_ArmanAvila.css" />
+        <title>Wave</title>
+        <style>
+        body {
+            background-color: paleturquoise;
+            font-family: grinchedregular;
 
-}
-		@font-face {
-    font-family: 'grinchedregular';
-    src: url('fonts/grinchedregular-webfont.woff2') format('woff2'),
-         url('fonts/grinchedregular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+        }
+            
+        h1 {
+            text-align: center;
+            font-size: 80px;
+            color: lightseagreen;
+            font-family: grinchedregular;
+        }
+            
+         .navbar-toggle {
+            float: left;
+            border: none;
+        }
 
-}
-    body{
-		background: url("images/bg2.jpg");
-		}
-  	.navbar-toggle{
-    float: left;
-		border: none;
-		}
-		.navbar-header{
-		height: 85px;
-		background: #2e61a0;
-		border: 1px white solid;
-		}
-		#title{
-		font-size: 30pt;
-		margin-left: 40%;
-		margin-top: 20%;
-		font-family: grinchedregular ;
-		color: cyan;
-		}
-		#sun{
-		height: 50px;
-		weight:50px;
-		}
-		.car{
-		font-family:grinchedregular; 
-		transform: translate(-110px,45px);
-		color: blue;
-		font-weight: solid;
-		}
-		#tip{
-		font-family:grinchedregular; 
-		transform: translate(0px, -40px);
-		color: blue;
-		font-weight: solid;
-		}
-		.btn{
-		transform: translate(90px, 210px);
-		width: 50%;
-		height:20%;
-		background-color: purple;
-		}
-		.collapse{
-		background-color: white;
-		}
-		.collapse  .nav .dropdown .dropdown-toggle:active{
-		background-color: gray;
-    }
-		.collapse  .nav .dropdown .dropdown-toggle:visited{
-		background-color: gray;
-		}
-			 #logged{
-		font-size: 30pt;
-		color: cyan;
-		}
-		#dropdownMenuButton{
-		transform: translate(90px, 15px);
-		background-color: #2e61a0;
-		border: #2e61a0;
-		}
-		#menu{
-		float: right;
-		transform: translateX(210px);
-		}
-		.dropdown-item{
-		font-size: 15pt;
-		}
+        .navbar-header {
+            height: 85px;
+            background: #2e61a0;
+            border: 1px white solid;
+        }                   
 
-  </style>
-</head>
-<body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<img id = "sun" src="images/hp.png">
+            
+            
+            
+        #title {
+            font-size: 30pt;
+            margin-left: 40%;
+            margin-top: 20%;
+            font-family: grinchedregular;
+            color: cyan;
+        }
+
+        #sun {
+            height: 50px;
+            weight: 50px;
+        }
+
+        .collapse {
+            background-color: white;
+        }
+
+        .collapse .nav .dropdown .dropdown-toggle:active {
+            background-color: gray;
+        }
+
+        .collapse .nav .dropdown .dropdown-toggle:visited {
+            background-color: gray;
+        }
+            
+            @font-face {
+            font-family: 'grinchedregular';
+            src: url('fonts/grinchedregular-webfont.woff2') format('woff2'),
+            url('fonts/grinchedregular-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+            
+        </style>
+    </head>
+    <body>
+        
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<img id = "sun" alt="sun" src="images/hp.png">
 				</button>
-				<a class="navbar-brand" href="index.html"><div id = "title">Wave</div></a>
-				  <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-    <span class="glyphicon glyphicon-user" id="logged"></span>
-  </button>
-  <div class="dropdown-menu" id="menu" aria-labelledby="dropdownMenuButton">
-	<ul class="nav">
-	<li>
-    <a class="dropdown-item" id="username"></a>
-		</li><li>
-    <a class="dropdown-item" id="logout"></a></li></ul>
- 
-</div>
-			</div>
-			<script>
-      if(localStorage.getItem("loginStatus") == "true") {
-			var name;
-			var a1 = document.getElementById("username");
-			name = localStorage.getItem("currentUser");
-			var text= document.createTextNode(name);
-			a1.appendChild(text);
-			
-			var a2 = document.getElementById("logout");
-			var text2 = document.createTextNode("Log-out");
-			a2.setAttribute("onclick", "logout()");
-			a2.setAttribute("href", "index.html");
-			a2.appendChild(text2);
-      } else{
-			var a1 = document.getElementById("username");
-			var text = document.createTextNode("Log-in");
-			a1.setAttribute("href", "login.html");
-			a1.appendChild(text); 
-			
-			var a2 = document.getElementById("logout");
-			var text2 = document.createTextNode("Sign-up");
-			a2.setAttribute("href", "signup.html");
-			a2.appendChild(text2);
-			}
-			function logout(){
-			localStorage.setItem("loginStatus", "false");
-			}
-			
-			
-			</script>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="Gallery.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Gallery</span><span class="caret"></span></a>
-						<ul class="dropdown-menu">
-
-
-							<li><a href="Photos.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Photos</span></a></li>
-
-							
-
-							<li><a href="Video.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Videos</span></a></li>
-						</ul>
-					</li>
-					<li><a href="articles.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Articles</span></a></li>
-					<li><a href="tips.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Tips</span></a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="signup.html"><span class="glyphicon glyphicon-user" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Sign Up</span></a></li>
-					<li><a href="login.html"><span class="glyphicon glyphicon-log-in" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Login</span></a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="images/gal.jpg" alt="Image">
-                <div class="carousel-caption">
-                    <h2 class="car">Gallery</h2>
-                </div>
+                <a class="navbar-brand" href="index.html">
+                    <div id="title">Wave</div>
+                </a>
             </div>
-
-            <div class="item">
-                <img src="images/ear.png" alt="Image">
-                <div class="carousel-caption">
-                    <h2 class="car">Articles</h2>
-                </div>
-            </div>
-						<div class="item">
-                <img src="images/bulb.jpg" alt="Image">
-                <div class="carousel-caption">
-                    <h2 id="tip">Tips</h2>
-                </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="https://a-plus-team.github.io/" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="Gallery.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Gallery</span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Photos.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Photos</span></a></li>
+                            <li><a href="#"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Videos</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="articles.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Articles</span></a></li>
+                    <li><a href="tips.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Tips</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="signup.html"><span class="glyphicon glyphicon-user" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Sign Up</span></a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in" style="color:purple; font-size: 18pt"></span><span style="color:purple; font-family:grinchedregular; font-size: 20pt"> Login</span></a></li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+
+    <div  id="container">
+
+        <h1>Video Gallery</h1>
+        <div id="bio">
+            <p>Now, here's a little video gallery for all of you.</p>
+            
+
+        </div>
+        <script>
+            var day;
+            switch (new Date().getDay()) {
+                case 0:
+                    day = "There is more fresh water located in the atmosphere than in all of the rivers on Earth combined.";
+                    break;
+                case 1:
+                    day = "The Great Lakes provide drinking water to 8.5 million Canadians.";
+                    break;
+                case 2:
+                    day = "Around 68 percent of the world's fresh water is located inside of glaciers and ice caps. 30 percent is located underground.";
+                    break;
+                case 3:
+                    day = "9 percent of Canada's total area is made up of fresh water";
+                    break;
+                case 4:
+                    day = "80 percent of all diseases in developing countries are water-related.";
+                    break; 
+                case 5:
+                    day = "Residential indoor water use in Canada: toilet – 30 percent; bathing & showering – 35 percent; laundry – 20 percent; kitchen and drinking – 10 percent; cleaning – 5 percent";
+                    break;
+                case 6:
+                    day = "780 million people worldwide lack access to a clean water source.";
+
+            }
+            
+            function myFunction() {
+            document.getElementById("demo").innerHTML = "Did you know? " + day;
+        }
+        </script>
+        
+        <fieldset>
+            
+        <button onclick="myFunction()">Water fact for today!</button>
+        <p id="demo"></p>
+            
+            
+            
+            <iframe style="width:100%" src="https://www.youtube.com/embed/VIaw5mCjHPI">
+            </iframe><br>
+
+            <iframe style="width:100%" src="https://www.youtube.com/embed/BCHhwxvQqxg">
+            </iframe><br>
+
+            <iframe style="width:100%" src="https://www.youtube.com/embed/zCheAcpFkL8">
+            </iframe>
+        </fieldset>
+        
     </div>
-		<a href="game_page.html" class="btn btn-info btn-lg">
-        <span style="font-family: grinchedregular; font-size: 20pt">Save the Salmon</span>
-    </a>
-
-    <!-- This is used to config Firebase -->
-    <!-- Test the API function of saveScore() and loadScore() - 20180509-->
-    <!--
-    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
-    <script src="./js/dBAPIs.js"></script>
-    <script>
-        saveScore(25);
-        var delayInMilliseconds = 1000; //1 second
-
-        setTimeout(function() {
-            var data = loadScore();
-            console.log("Back to main page"); //your code to be executed after 1 second
-        }, delayInMilliseconds);
-
-    </script>
--->
-
-
-</body>
-
+    </body>
 </html>
