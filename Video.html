@@ -142,8 +142,19 @@
 
             }
             
+           var i = 0;
             function myFunction() {
+                
+                if (i == 0) {
             document.getElementById("demo").innerHTML = "Did you know? " + day;
+                    i = i + 1;
+                    }
+                else {
+                    document.getElementById("demo").innerHTML = "";
+                    i = i - 1;
+                }
+                
+                
         }
         </script>
         
