@@ -75,7 +75,8 @@ to save the water.
             div.style.opacity = "0.9";
             div.style.border = "solid";
             div.style.zIndex = "5";
-            tmpStr += "<table style='position:absolute; left:25px; top:25px; text-align:center;'cellspacing='20';><thead><tr><td>RANK</td><td>NAME</td><td>SCORE</td></tr></thead>"; 
+            
+            tmpStr += "<table style='position:absolute; left:13%; top:5%; text-align:center;' cellspacing='10';><thead><tr><td>RANK</td><td>NAME</td><td>SCORE</td></tr></thead>"; 
             var rank = 1;
             var iter = 0;
             var arr = [];
@@ -95,9 +96,33 @@ to save the water.
             for(var i = 0 ; i < arr.length ; i++){
                 tmpStr += "<tr><td>" + rank++ + "</td><td>" + arr[i]['user_name'] + "</td><td>" + arr[i]['user_score'] + "</td></tr>";
             }
-            tmpStr += "<tfoot><tr><input type='button' value='Restart!' onclick='location.reload()'/><input type='button' value='Main Page' onclick='ynFunction2()'/></tr></tfoot></table>";
+            tmpStr += "</table>";
             div.innerHTML = tmpStr;
             document.getElementById("base").removeChild(document.getElementById("gameover"));
+            
+            var btn1 = document.createElement("input");
+            btn1.setAttribute("id","btn1");
+            btn1.style.position = "absolute";
+            btn1.style.top = "85%";
+            btn1.style.left = "20%";
+            btn1.type = "button";
+            btn1.setAttribute("value", "Restart!");
+            btn1.setAttribute("onclick", "location.reload()");
+
+            div.appendChild(btn1);
+
+            var btn2 = document.createElement("input");
+            btn2.setAttribute("id","btn2");
+            btn2.style.position = "absolute";
+            btn2.style.top = "85%";
+            btn2.style.left = "55%";
+            btn2.type = "button";
+            btn2.setAttribute("value", "Main Page");
+            btn2.setAttribute("onclick", "ynFunction2()");
+
+            div.appendChild(btn2);
+            
+            
             document.getElementById("base").appendChild(div);
         }
         
@@ -154,8 +179,7 @@ to save the water.
             }
             for(var i = 0 ; i < 10 ; i++){
                 if(blockVariables[i]){
-                //waterLevel -= 1.0;
-                    waterLevel -= 50.0;
+                waterLevel -= 1.0;
                 var tmpStr = "";
                 if(truePrac){
                 if(waterLevel <= 0){
@@ -165,14 +189,52 @@ to save the water.
                     var div1 = document.createElement("div");
                     div1.setAttribute("id","gameover");
                     div1.style.position = "absolute";
+
                     div1.style.backgroundColor = "#382F71";
                     div1.style.opacity = "0.9";
                     div1.style.border = "solid";
                     div1.style.zIndex = "6";
                     div1.style.textAlign = "center"; 
-                    div1.style.fontSize = "30px";
+                    div1.style.fontSize = "28px";
                     div1.style.color = "azure";
-                    div1.innerHTML = "<br>Game Over<br><input type='button' value='Restart!' onclick='location.reload()'/><br><input type='button' value='Main Page' onclick='ynFunction2()'/><br><input type='button' value='Leader Board' onclick='scoreLine()'/>";
+                     div1.innerHTML = "<br>Game Over";
+
+                    var btn1 = document.createElement("input");
+                    btn1.setAttribute("id","btn1");
+                    btn1.style.position = "absolute";
+                    btn1.style.top = "40%";
+                    btn1.style.left = "40%";
+                    btn1.type = "button";
+                    btn1.setAttribute("value", "Restart!");
+                    btn1.setAttribute("onclick", "location.reload()");
+                    
+                    div1.appendChild(btn1);
+                    
+                    var btn2 = document.createElement("input");
+                    btn2.setAttribute("id","btn2");
+                    btn2.style.position = "absolute";
+                    btn2.style.top = "60%";
+                    btn2.style.left = "38%";
+                    btn2.type = "button";
+                    btn2.setAttribute("value", "Main Page");
+                    btn2.setAttribute("onclick", "ynFunction2()");
+                    
+                    div1.appendChild(btn2);
+                    
+                    var btn3 = document.createElement("input");
+                    btn3.setAttribute("id","btn3");
+                    btn3.style.position = "absolute";
+                    btn3.style.top = "80%";
+                    btn3.style.left = "35%";
+                    btn3.type = "button";
+                    btn3.setAttribute("value", "Leader Board");
+                    btn3.setAttribute("onclick", "scoreLine()");
+                    
+                    div1.appendChild(btn3);
+                    
+                    
+                    
+                    
                     document.getElementById("base").appendChild(div1);
                 }
                     
@@ -188,7 +250,7 @@ to save the water.
             window.location.href="index.html";
         }
     </script>
-    
+   
 </body>
 </html>
 
