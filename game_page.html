@@ -13,14 +13,13 @@ to save the water.
 <link rel="stylesheet" href="style1.css"/>
 </head>
 <body>
-    <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
+    <div id = "title">
         <p><b>Save Our Water!</b></p>
+        <div id="time" style="position:absolute; top:70%; left:40%;">time : 00</div>
+        <div id="score" style="position:absolute; top:70%; left:75%">score : 00</div>  
     </div>
-    
-    <div id="time" style="position:absolute; top:57px; left:150px;">time : 00</div>
-    <div id="score" style="position:absolute; top:57px; left:300px;">score : 00</div>    
-    <div id="base" style="position:absolute;  top:80px; left:0px; width:375px; height:507px; border: solid 1px;">
-    
+      
+    <div id="base">
     <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>
     <img id="blocks1" src="./game_images/laundry1.gif" ontouchstart="blockFunction(event)"/>
     <img id="blocks2" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
@@ -39,8 +38,9 @@ to save the water.
     <img id="items2" class="drobby" src="./game_images/drop6.png" ontouchstart="blocksFunction(event)"/>
 
     <div id="fish" ondrop="drop(event)" ondragover="allowDrop(event)" 
-         style="position:absolute;  bottom:0px; width:90px; height:200px; border: solid; background-color: azure;"> <div id="water"></div>
+         style="position:absolute;  bottom:0px; width:90px; border: solid; background-color: azure;"> <div id="water"></div>
     </div></div>
+    <div id="belowest"></div>
     <br>
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <script src="./js/dBAPIs.js"></script>
@@ -50,14 +50,9 @@ to save the water.
         var time = 0;
         var yn = 0;
         
-        if(localStorage.getItem("userKey") == "null"){
+        if(localStorage.getItem("userKey") == null){
             var div1 = document.createElement("div");
             div1.setAttribute("id","gamestart");
-            div1.style.position = "absolute";
-            div1.style.top = "180px";
-            div1.style.left = "25px";
-            div1.style.width = "320px";
-            div1.style.height = "200px";
             div1.style.backgroundColor = "#382F71";
             div1.style.opacity = "0.9";
             div1.style.border = "solid";
@@ -66,7 +61,7 @@ to save the water.
             div1.style.fontSize = "30px";
             div1.style.color = "azure";
             div1.innerHTML = "<br>Do you want to log in?<br><input type='button' value='yes' onclick='ynFunction1()'/><br><input type='button' value='no' onclick='ynFunction2()'/><br>";
-            document.body.appendChild(div1);
+            document.getElementById("base").appendChild(div1);
         }else{
             randFunction();
         }        
@@ -74,11 +69,8 @@ to save the water.
             var tmpStr ="";
             
             var div = document.createElement("div");
+            div.setAttribute("id","leaderBoard");
             div.style.position = "absolute";
-            div.style.top = "50px";
-            div.style.left = "50px";
-            div.style.width = "280px";
-            div.style.height = "400px";
             div.style.backgroundColor = "azure";
             div.style.opacity = "0.9";
             div.style.border = "solid";
@@ -105,8 +97,8 @@ to save the water.
             }
             tmpStr += "<tfoot><tr><input type='button' value='Restart!' onclick='location.reload()'/><input type='button' value='Main Page' onclick='ynFunction2()'/></tr></tfoot></table>";
             div.innerHTML = tmpStr;
-            document.body.removeChild(document.getElementById("gameover"));
-            document.body.appendChild(div);
+            document.getElementById("base").removeChild(document.getElementById("gameover"));
+            document.getElementById("base").appendChild(div);
         }
         
         
@@ -114,6 +106,7 @@ to save the water.
         for(var i = 0 ; i<10 ; i++){
             blockVariables[i] = false;
         }
+        waterLevel = document.getElementById("water").getBoundingClientRect().height;
         function blockFunction(e){
             if(blockVariables[e.target.id.charAt(e.target.id.length-1)]){
             var source = e.target.id.charAt(e.target.id.length-1);
@@ -161,7 +154,8 @@ to save the water.
             }
             for(var i = 0 ; i < 10 ; i++){
                 if(blockVariables[i]){
-                waterLevel -= 1.0;
+                //waterLevel -= 1.0;
+                    waterLevel -= 50.0;
                 var tmpStr = "";
                 if(truePrac){
                 if(waterLevel <= 0){
@@ -171,10 +165,6 @@ to save the water.
                     var div1 = document.createElement("div");
                     div1.setAttribute("id","gameover");
                     div1.style.position = "absolute";
-                    div1.style.top = "180px";
-                    div1.style.left = "25px";
-                    div1.style.width = "320px";
-                    div1.style.height = "200px";
                     div1.style.backgroundColor = "#382F71";
                     div1.style.opacity = "0.9";
                     div1.style.border = "solid";
@@ -183,7 +173,7 @@ to save the water.
                     div1.style.fontSize = "30px";
                     div1.style.color = "azure";
                     div1.innerHTML = "<br>Game Over<br><input type='button' value='Restart!' onclick='location.reload()'/><br><input type='button' value='Main Page' onclick='ynFunction2()'/><br><input type='button' value='Leader Board' onclick='scoreLine()'/>";
-                    document.body.appendChild(div1);
+                    document.getElementById("base").appendChild(div1);
                 }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
@@ -198,14 +188,6 @@ to save the water.
             window.location.href="index.html";
         }
     </script>
-    
-    
-    <div style="position:absolute; top:589px; left:0px; height:80px; width:375px; border:solid 1px; background-color:#382F71;border:solid 1px;"></div>
-    
-    
-                        
-    
-    
     
 </body>
 </html>
