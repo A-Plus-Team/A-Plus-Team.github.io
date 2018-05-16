@@ -50,7 +50,7 @@
 
 .content {
   position: absolute;
-  margin-top: -175%;
+  margin-top: -177%;
     height: 700px;
   right: 0;
   z-index: 9999;
@@ -65,7 +65,7 @@
 	</head>
 	<body>
 	<div class="background-image"></div>
-<div class="content">
+<div class="content" id = "con">
 		<h1>Outdoor Tips</h1>
 		<a href="tips.html">
           <span class="glyphicon glyphicon-chevron-left" id="back"></span>
@@ -80,6 +80,17 @@
 			
     </ul>
 			</div>
+		<script>
+            var content = document.getElementById('con');
+            
+        if(screen.width == 320) {
+           
+            content.style.position = "absolute";
+            content.style.marginTop = "-200%";
+    content.style.height = "700px";
+            content.style.marginLeft = "15px";
+        }
+        </script>
 	</body>
 
 </html>
