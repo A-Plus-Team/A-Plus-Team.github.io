@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    <title>Bootstrap Example</title>
+    <title>Wave</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -38,8 +38,8 @@
 		}
 		#title{
 		font-size: 30pt;
-		margin-left: 40%;
-		margin-top: 20%;
+		margin-left: 75%;
+		margin-top: 25%;
 		font-family: grinchedregular ;
 		color: cyan;
 		}
@@ -60,7 +60,7 @@
 		font-weight: solid;
 		}
 		.btn{
-		transform: translate(90px, 210px);
+		transform: translate(90px, 80px);
 		width: 50%;
 		height:20%;
 		background-color: purple;
@@ -79,14 +79,14 @@
 		color: cyan;
 		}
 		#dropdownMenuButton{
-		transform: translate(90px, 15px);
+		transform: translate(120px, 20px);
 		background-color: #2e61a0;
 		border: #2e61a0;
 		}
 		#menu{
 		float: right;
 		transform: translateX(210px);
-	        font-family: grinchedregular;
+		font-family: grinchedregular ;
 		}
 		.dropdown-item{
 		font-size: 15pt;
@@ -175,28 +175,41 @@
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
 						<li data-target="#myCarousel" data-slide-to="2"></li>
+						<li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <img src="images/gal.jpg" alt="Image">
+		    <a href="Photos.html">
                 <div class="carousel-caption">
-                    <h2 class="car">Gallery</h2>
+                    <h2 class="car">Photos</h2>
                 </div>
+		    </a>
             </div>
-
+          <div class="item">
+                <img src="images/vid.jpg" alt="Image">
+		    <a href="Video.html">
+                <div class="carousel-caption">
+                    <h2 class="car" id="vid">Videos</h2>
+                </div>
+		    </a>
+            </div>
             <div class="item">
                 <img src="images/ear.png" alt="Image">
+		    <a href="articles.html">
                 <div class="carousel-caption">
                     <h2 class="car">Articles</h2>
                 </div>
+		    </a>
             </div>
 						<div class="item">
                 <img src="images/bulb.jpg" alt="Image">
+							<a href="tips.html">
                 <div class="carousel-caption">
                     <h2 id="tip">Tips</h2>
-                </div>
+								</div></a>
             </div>
         </div>
 
