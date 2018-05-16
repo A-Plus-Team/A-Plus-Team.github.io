@@ -62,7 +62,7 @@
 	</head>
 	<body>
 	<div class="background-image"></div>
-<div class="content">
+<div class="content" id = "con">
 		<h1>Indoor Tips</h1>
 		<a href="tips.html">
           <span class="glyphicon glyphicon-chevron-left" id="back"></span>
@@ -79,6 +79,30 @@
             <li>Collect the water you use while rinsing fruit and vegetables. Use it to water house plants.</li>
     </ul>
 			</div>
+		
+		       
+        <script>
+            var content = document.getElementById('con');
+            
+        if(screen.width == 320) {
+           
+            content.style.position = "absolute";
+            content.style.marginTop = "-200%";
+    content.style.height = "700px";
+            content.style.marginLeft = "15px";
+            
+ 
+  
+    
+        }
+        
+        
+        
+        
+        
+        
+        </script>
+ 
 	</body>
 
 </html>
