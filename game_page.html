@@ -50,7 +50,7 @@ to save the water.
         var time = 0;
         var yn = 0;
         
-        if(localStorage.getItem("userKey") == null){
+        if(localStorage.getItem("loginStatus") == "false"){
             var div1 = document.createElement("div");
             div1.setAttribute("id","gamestart");
             div1.style.backgroundColor = "#382F71";
