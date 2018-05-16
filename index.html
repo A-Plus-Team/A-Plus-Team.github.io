@@ -92,7 +92,24 @@
 		font-size: 15pt;
 		}
 
-  </style>
+        @media only screen and (max-width: 330px) {
+            #title {
+                font-size: 30pt;
+                margin-left: 40%;
+                margin-top: 25%;
+                font-family: grinchedregular;
+                color: cyan;
+            }
+
+            #dropdownMenuButton {
+                /* transform: translate(24%, 3%);*/
+                transform: translate(70px, 20px);
+                background-color: #2e61a0;
+                border: #2e61a0;
+            }
+
+        }
+    </style>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -215,8 +232,8 @@
       <span class="sr-only">Next</span>
     </a>
     </div>
-		<a href="game_page.html" class="btn btn-info btn-lg">
-        <span style="font-family: grinchedregular; font-size: 20pt">Save the Salmon</span>
+    <a href="game_page.html" class="btn btn-info btn-lg">
+        <span style="font-family: grinchedregular; font-size: 18pt">Save the Salmon</span>
     </a>
 
     <!-- This is used to config Firebase -->
