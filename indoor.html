@@ -35,10 +35,11 @@
   
   
 
-  
+  display: block;
   background-image:url('images/bg5.jpg');
   width: 375px;
   height: 667px;
+            overflow-y: scroll;
 
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
@@ -50,20 +51,22 @@
 .content {
   position: absolute;
   margin-top: -180%;
-  left: 0;
+    height: 700px;
   right: 0;
   z-index: 9999;
   margin-left: 5px;
   margin-right: 5px;
-    width: 375px;
-    height: 700px;
+    overflow-y: visible;
 }
+	    #back{
+		    transform: translateY(5px);
+	    }
 		</style>
 	</head>
 	<body>
-	<div class="background-image"></div>
+	<div class="background-image" id = "back-img"></div>
 <div class="content" id = "con">
-		<h1>Indoor Tips</h1>
+		<h1 id = "h1tag">Indoor Tips</h1>
 		<a href="tips.html">
           <span class="glyphicon glyphicon-chevron-left" id="back"></span>
         </a>
@@ -78,31 +81,27 @@
             <li>Avoid recreational water toys that require a constant flow of water.</li>
             <li>Collect the water you use while rinsing fruit and vegetables. Use it to water house plants.</li>
     </ul>
-			</div>
-		
-		       
-        <script>
+		</div>
+		<script>
             var content = document.getElementById('con');
+            var back = document.getElementById('back-img');
+            var h1tag = document.getElementById('h1tag');
             
-        if(screen.width == 320) {
+            
+        if(screen.width == 320 && screen.height == 568) {
            
             content.style.position = "absolute";
-            content.style.marginTop = "-200%";
-    content.style.height = "700px";
+            content.style.marginTop = "-220%";
+            content.style.height = "700px";
+            content.style.width = "330px";
             content.style.marginLeft = "15px";
             
- 
-  
-    
+            back.style.width = "330px";
+            back.style.height = "700px"
+            
+            h1tag.style.marginLeft = "10%";
         }
-        
-        
-        
-        
-        
-        
         </script>
- 
 	</body>
 
 </html>
