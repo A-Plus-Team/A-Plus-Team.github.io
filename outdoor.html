@@ -64,9 +64,9 @@
 		</style>
 	</head>
 	<body>
-	<div class="background-image"></div>
+	<div class="background-image" id = "back-img"></div>
 <div class="content" id = "con">
-		<h1>Outdoor Tips</h1>
+		<h1 id = "h1tag">Outdoor Tips</h1>
 		<a href="tips.html">
           <span class="glyphicon glyphicon-chevron-left" id="back"></span>
         </a>
@@ -82,13 +82,21 @@
 			</div>
 		<script>
             var content = document.getElementById('con');
+            var back = document.getElementById('back-img');
+            var h1tag = document.getElementById('h1tag');
             
-        if(screen.width == 320) {
+            
+        if(screen.width == 320 && screen.height == 568) {
            
             content.style.position = "absolute";
             content.style.marginTop = "-200%";
-    content.style.height = "700px";
+            content.style.height = "570px";
+            content.style.width = "320px";
             content.style.marginLeft = "15px";
+            
+            back.style.width = "330px";
+            
+            h1tag.style.marginLeft = "10%";
         }
         </script>
 	</body>
