@@ -29,7 +29,7 @@
                 
                 overflow: scroll;
                 background-color: aquamarine;
-    	background-image: url("images/kidp.jpg");
+    	
             }
            
             
@@ -39,9 +39,20 @@
 	  <a href="tips.html">
           <span class="glyphicon glyphicon-chevron-left" id="back"></span>
           </a>
-          <div id = "div1"></div>
+          <img id = "div1" src = "images/kidp.jpg">
           
-        
+        <script>
+            var img = document.getElementById('div1');
+            var back = document.getElementById('back');
+            if(screen.width == 320 &&screen.height == 568) {
+                img.style.width = "320px";
+                img.style.height = "568px";
+                img.style.overflow = "scroll";
+                bacl.style.marginLeft = "80%";
+            } 
+            
+            
+        </script>
 	</body>
 
-</html
+</html>
