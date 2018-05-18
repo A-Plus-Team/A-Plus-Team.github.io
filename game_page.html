@@ -1,56 +1,168 @@
-<!--
-The source code of this webpage contains a game.
-programmer: Jaeheon Jung
-art asset designer : Jaeheon Jung
-The method of the game : 
-A user has to turn off the faucats that are randomely turned on and take items
-to save the water.
--->
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="style1.css"/>
 </head>
-<body onload="randFunction();">
-    <div id = "title" style="position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;">
+<body>
+    
+    <!--
+    The source code of this webpage contains a game.
+    programmer: Jaeheon Jung
+    art asset designer : Jaeheon Jung
+    The method of the game : 
+    A user has to turn off the faucats that are randomely turned on and take items
+    to save the water.
+
+    2018 All copyright reserved
+    -->
+
+    <div id = "title">
         <p><b>Save Our Water!</b></p>
+        <div id="time" style="position:absolute; top:70%; left:40%;">time : 00</div>
+        <div id="score" style="position:absolute; top:70%; left:75%">score : 00</div>  
     </div>
-    
-    <div id="time" style="position:absolute; top:57px; left:150px;">time : 00</div>
-    <div id="score" style="position:absolute; top:57px; left:300px;">score : 00</div>    
-    <div id="base" style="position:absolute;  top:80px; left:0px; width:375px; height:507px; border: solid 1px;">
-    
-    <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>
+
+    <audio id="audio1"><source src="./game_images/lake-waves-lapping-on-the-beach-01.mp3" type="audio/mpeg" /></audio>
+    <div id="base">
+    <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>    
     <img id="blocks1" src="./game_images/laundry1.gif" ontouchstart="blockFunction(event)"/>
     <img id="blocks2" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
     <img id="blocks3" src="./game_images/bottle2.gif" ontouchstart="blockFunction(event)"/>
     <img id="blocks4" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
-
     <img id="blocks5" src="./game_images/sink2.gif" ontouchstart="blockFunction(event)"/>
     <img id="blocks6" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
     <img id="blocks7" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
-    <img id="blocks8" src="./game_images/shower1.gif" ontouchstart="blockFunction(event)"/>
+    <img id="blocks8" src="./game_images/shower1.gif" ontouchstart="blockFunction(event);"/>
     <img id="blocks9" src="./game_images/hose1.gif" ontouchstart="blockFunction(event)"/>
-    
 
     <img id="items0" class="drobby" src="./game_images/drop6.png" ontouchstart="blocksFunction(event)"/>
     <img id="items1" class="drobby" src="./game_images/drop6.png" ontouchstart="blocksFunction(event)"/>
     <img id="items2" class="drobby" src="./game_images/drop6.png" ontouchstart="blocksFunction(event)"/>
 
     <div id="fish" ondrop="drop(event)" ondragover="allowDrop(event)" 
-         style="position:absolute;  bottom:0px; width:90px; height:200px; border: solid; background-color: azure;"> <div id="water"></div>
+         style="position:absolute;  bottom:0px; width:90px; border: solid; background-color: azure;"> <div id="water"></div>
     </div></div>
+    <div id="belowest"></div>
     <br>
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script src="./js/dBAPIs.js"></script>
     <script>
         var waterLevel = 200;
         var score = 0;
         var time = 0;
-        var image;
+        var yn = 0;
+        
+        var au = document.getElementById("audio1");
+        au.loop = true;
+        function playAudio(e) { 
+            if(au.paused){
+                au.play();
+            }
+        } 
+        function pauseAudio(e) {
+            if(!au.paused)
+                au.pause();
+        }
+        if(localStorage.getItem("loginStatus") == "false"){        
+            var div1 = document.createElement("div");
+            div1.setAttribute("id","gamestart");
+            div1.style.backgroundColor = "#382F71";
+            div1.style.opacity = "0.9";
+            div1.style.border = "solid";
+            div1.style.zIndex = "6";
+            div1.style.textAlign = "center";
+            div1.style.fontSize = "24px";
+            div1.style.color = "azure";
+            div1.innerHTML = "<br>Do you want to log in to save score?<br><br><input type='button' value='yes' onclick='ynFunction1()'/>&emsp;<input type='button' value='no' onclick='au.play();au.pause();randFunction();div1.remove();'/><br>";
+            document.getElementById("base").appendChild(div1);
+        }else{
+            var div2 = document.createElement("div");
+            div2.setAttribute("id","gameprevious");
+            div2.style.backgroundColor = "#382F71";
+            div2.style.position = "absolute";
+            div2.style.left = "13%";
+            div2.style.top = "15%";
+            div2.style.width = "280px";
+            div2.style.height = "200px";
+            div2.style.opacity = "0.7";
+            div2.style.border = "solid";
+            div2.style.zIndex = "6";
+            div2.style.textAlign = "center";
+            div2.style.fontSize = "30px";
+            div2.style.color = "azure";
+            div2.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='au.play();au.pause();randFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='ynFunction2();'/><br>";
+            document.getElementById("base").appendChild(div2);
+            
+        }
+        function scoreLine(){
+            var tmpStr ="";
+            
+            var div = document.createElement("div");
+            div.setAttribute("id","leaderBoard");
+            div.style.position = "absolute";
+            div.style.backgroundColor = "azure";
+            div.style.opacity = "0.9";
+            div.style.border = "solid";
+            div.style.zIndex = "5";
+            
+            tmpStr += "<table style='position:absolute; left:17%; top:5%; text-align:center;' cellspacing='10';><thead><tr><td>RANK</td><td>NAME</td><td>SCORE</td></tr></thead>"; 
+            var rank = 1;
+            var iter = 0;
+            var arr = [];
+            loadScore().forEach(function(childSnapshot) {
+            var childKey = childSnapshot.key;
+            var childData = childSnapshot.val();
+            arr[iter++] = childData;
+            for(var i = 0 ; i < arr.length; i++){
+            for(var j = i+1 ; j < arr.length ; j++){
+                if(arr[i]['user_score'] < arr[j]['user_score']){
+                var tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+                }
+            }}
+            });
+            for(var i = 0 ; i < arr.length ; i++){
+                if(rank<=8){
+                tmpStr += "<tr><td>" + rank++ + "</td><td>" + arr[i]['user_name'] + "</td><td>" + arr[i]['user_score'] + "</td></tr>";
+                }
+            }
+            tmpStr += "</table>";
+            div.innerHTML = tmpStr;
+            document.getElementById("base").removeChild(document.getElementById("gameover"));
+            
+            var btn1 = document.createElement("input");
+            btn1.setAttribute("id","btn1");
+            btn1.style.position = "absolute";
+            btn1.style.top = "85%";
+            btn1.style.left = "20%";
+            btn1.type = "button";
+            btn1.setAttribute("value", "Restart!");
+            btn1.setAttribute("onclick", "location.reload()");
+
+            div.appendChild(btn1);
+
+            var btn2 = document.createElement("input");
+            btn2.setAttribute("id","btn2");
+            btn2.style.position = "absolute";
+            btn2.style.top = "85%";
+            btn2.style.left = "55%";
+            btn2.type = "button";
+            btn2.setAttribute("value", "Main Page");
+            btn2.setAttribute("onclick", "ynFunction2()");
+
+            div.appendChild(btn2);
+            
+            document.getElementById("base").appendChild(div);
+        }
+        
+        
         var blockVariables = [];
         for(var i = 0 ; i<10 ; i++){
             blockVariables[i] = false;
         }
+        waterLevel = document.getElementById("water").getBoundingClientRect().height;
         function blockFunction(e){
             if(blockVariables[e.target.id.charAt(e.target.id.length-1)]){
             var source = e.target.id.charAt(e.target.id.length-1);
@@ -59,25 +171,29 @@ to save the water.
             document.getElementById("water").style.height = waterLevel + "px";
             score += 1;
             document.getElementById("score").innerHTML = "score : " + score;
+                
             }
             return false;
         }
         function blocksFunction(e){
             e.target.style.visibility = "hidden";
-            waterLevel += 10;
+            waterLevel += 10/2;
             document.getElementById("water").style.height = waterLevel + "px";
         }
         
-
+        var truePrac = true;
         function randFunction() {
-            setInterval(function(){ 
+            
+            setInterval(function(){
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
             if(spawnRatio==1){
                 var max = Math.floor((Math.random() * 2) + 1);
                 for(var i = 0; i<max; i++){
                     var source = Math.floor((Math.random() * 10) + 1) - 1;
                     if(!blockVariables[source]){
-                    if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2w.gif";}else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1w.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2w.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2w.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2w.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2w.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2w.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2w.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1w.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1w.gif";}blockVariables[source] = !blockVariables[source];
+                        playAudio(1);
+                    if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2w.gif";           }else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1w.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2w.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2w.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2w.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2w.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2w.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2w.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1w.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1w.gif";}blockVariables[source] = !blockVariables[source];
+                        
                     }
                 }
             }
@@ -96,25 +212,83 @@ to save the water.
             }else if ( waterLevel < 0){
                 waterLevel = 2;
             }
+            var count = 0;
             for(var i = 0 ; i < 10 ; i++){
+                
                 if(blockVariables[i]){
-                waterLevel -= 0.2;
+                waterLevel -= 1.0;
+                count++;
+                if(truePrac){
+                if(waterLevel <= 0){
+                   truePrac = false;
+                    saveScore(score);
                     
-//                if(waterLevel <= 0){
-//                    popUpGameOver();
-//                    var leadusers;
-//                    if(save(score)){
-//                        leadusers = load();
-//                    }
-//                    popUpLeadBoard();
-//                }
+                    var div1 = document.createElement("div");
+                    div1.setAttribute("id","gameover");
+                    div1.style.position = "absolute";
+
+                    div1.style.backgroundColor = "#382F71";
+                    div1.style.opacity = "0.9";
+                    div1.style.border = "solid";
+                    div1.style.zIndex = "6";
+                    div1.style.textAlign = "center"; 
+                    div1.style.fontSize = "28px";
+                    div1.style.color = "azure";
+                     div1.innerHTML = "<br>Game Over";
+
+                    var btn1 = document.createElement("input");
+                    btn1.setAttribute("id","btn1");
+                    btn1.style.position = "absolute";
+                    btn1.style.top = "40%";
+                    btn1.style.left = "40%";
+                    btn1.type = "button";
+                    btn1.setAttribute("value", "Restart!");
+                    btn1.setAttribute("onclick", "location.reload()");
+                    
+                    div1.appendChild(btn1);
+                    
+                    var btn2 = document.createElement("input");
+                    btn2.setAttribute("id","btn2");
+                    btn2.style.position = "absolute";
+                    btn2.style.top = "60%";
+                    btn2.style.left = "38%";
+                    btn2.type = "button";
+                    btn2.setAttribute("value", "Main Page");
+                    btn2.setAttribute("onclick", "ynFunction2()");
+                    
+                    div1.appendChild(btn2);
+                    
+                    var btn3 = document.createElement("input");
+                    btn3.setAttribute("id","btn3");
+                    btn3.style.position = "absolute";
+                    btn3.style.top = "80%";
+                    btn3.style.left = "35%";
+                    btn3.type = "button";
+                    btn3.setAttribute("value", "Leader Board");
+                    btn3.setAttribute("onclick", "scoreLine()");
+                    
+                    div1.appendChild(btn3);
+                    document.getElementById("base").appendChild(div1);
+                }
                     
                 document.getElementById("water").style.height = waterLevel + "px";
                 }
-            }}, 200);
+                }
+                
+            }
+            if(count==0){
+                pauseAudio(1);
+            }
+
+            }, 200);
          }
+        function ynFunction1(){
+            window.location.href="login.html";
+        }
+        function ynFunction2(){
+            window.location.href="index.html";
+        }
     </script>
-    <div style="position:absolute; top:589px; left:0px; height:80px; width:375px; border:solid 1px; background-color:#382F71;border:solid 1px;"></div>
     
 </body>
 </html>
