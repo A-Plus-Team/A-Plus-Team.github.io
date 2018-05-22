@@ -4,18 +4,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="style1.css"/>
 </head>
-<body>
-    
-    <!--
-    The source code of this webpage contains a game.
-    programmer: Jaeheon Jung
-    art asset designer : Jaeheon Jung
-    The method of the game : 
-    A user has to turn off the faucats that are randomely turned on and take items
-    to save the water.
+<body>    
+<!--
+The source code of this webpage contains a game.
+programmer: Jaeheon Jung
+art asset designer : Jaeheon Jung
+The method of the game : 
+A user has to turn off the faucets that are randomely turned on and takes items
+to save water.
 
-    2018 All copyright reserved
-    -->
+2018 All copyright reserved
+
+salmon, difficulty, item sound
+shows up game score( number 31 my score), change to higher score,instructions,
+-->
 
     <div id = "title">
         <p><b>Save Our Water!</b></p>
@@ -23,7 +25,8 @@
         <div id="score" style="position:absolute; top:70%; left:75%">score : 00</div>  
     </div>
 
-    <audio id="audio1"><source src="./game_images/lake-waves-lapping-on-the-beach-01.mp3" type="audio/mpeg" /></audio>
+    <audio id="audio1"><source src="https://www.soundjay.com/nature/sounds/lake-waves-lapping-on-the-shore-02.mp3" type="audio/mpeg" /></audio>
+    <audio id="audio2"><source src="https://www.soundjay.com/button/sounds/button-09.mp3" type="audio/mpeg" /></audio>
     <div id="base">
     <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>    
     <img id="blocks1" src="./game_images/laundry1.gif" ontouchstart="blockFunction(event)"/>
@@ -51,7 +54,7 @@
         var waterLevel = 200;
         var score = 0;
         var time = 0;
-        var yn = 0;
+        var setMenu = 0;
         
         var au = document.getElementById("audio1");
         au.loop = true;
@@ -61,8 +64,9 @@
             }
         } 
         function pauseAudio(e) {
-            if(!au.paused)
+            if(!au.paused){
                 au.pause();
+            }
         }
         if(localStorage.getItem("loginStatus") == "false"){        
             var div1 = document.createElement("div");
@@ -93,7 +97,6 @@
             div2.style.color = "azure";
             div2.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='au.play();au.pause();randFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='ynFunction2();'/><br>";
             document.getElementById("base").appendChild(div2);
-            
         }
         function scoreLine(){
             var tmpStr ="";
@@ -171,26 +174,26 @@
             document.getElementById("water").style.height = waterLevel + "px";
             score += 1;
             document.getElementById("score").innerHTML = "score : " + score;
-                
+            
             }
             return false;
         }
         function blocksFunction(e){
             e.target.style.visibility = "hidden";
             waterLevel += 10/2;
+            document.getElementById("audio2").play();
             document.getElementById("water").style.height = waterLevel + "px";
         }
         
         var truePrac = true;
-        function randFunction() {
-            
+        function randFunction() {  
             setInterval(function(){
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
             if(spawnRatio==1){
                 var max = Math.floor((Math.random() * 2) + 1);
                 for(var i = 0; i<max; i++){
                     var source = Math.floor((Math.random() * 10) + 1) - 1;
-                    if(!blockVariables[source]){
+                    if(!blockVariables[source] && setMenu==0){
                         playAudio(1);
                     if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2w.gif";           }else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1w.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2w.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2w.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2w.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2w.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2w.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2w.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1w.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1w.gif";}blockVariables[source] = !blockVariables[source];
                         
@@ -201,9 +204,11 @@
                 var max = Math.floor((Math.random() * 3) + 1) - 1;
                 for(var i = 0; i<max; i++){
                 var source = Math.floor((Math.random() * 3) + 1) - 1;
-                if(source == 0){document.getElementById("items0").style.visibility="visible";}else if(source == 1){document.getElementById("items1").style.visibility="visible";}else if(source == 2){document.getElementById("items2").style.visibility="visible";}}
+                if(source == 0 && setMenu==0){document.getElementById("items0").style.visibility="visible";}else if(source == 1 && setMenu==0){document.getElementById("items1").style.visibility="visible";}else if(source == 2 && setMenu==0){document.getElementById("items2").style.visibility="visible";}}
             }
-            time += 1;
+            if(setMenu==0){
+                time += 1;
+            }
 
             document.getElementById("time").innerHTML = "time : " + time;}, 1000);
             setInterval(function(){ 
@@ -221,6 +226,7 @@
                 if(truePrac){
                 if(waterLevel <= 0){
                    truePrac = false;
+                    setMenu = -1;
                     saveScore(score);
                     
                     var div1 = document.createElement("div");
