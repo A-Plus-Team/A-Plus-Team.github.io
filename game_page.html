@@ -9,20 +9,21 @@
 The source code of this webpage contains a game.
 programmer: Jaeheon Jung
 art asset designer : Jaeheon Jung
-
 The method of the game : 
 A user has to turn off the faucets that are randomely turned on and takes items
 to save water.
 
 2018 All copyright reserved
 
-mp3 resource : www.soundjay.com/
+sound resource : www.soundjay.com/
+
+
 -->
 
     <div id = "title">
-        <p><b>Save Our Water!</b></p>
-        <div id="time" style="position:absolute; top:70%; left:40%;">time : 00</div>
-        <div id="score" style="position:absolute; top:70%; left:75%">score : 00</div>  
+        <br><br>
+        <b>Save Our Water!</b>
+        <div id="score" style="position:absolute; top:55%; left:75%;">score : 0</div>  
     </div>
 
     <audio id="audio1"><source src="https://www.soundjay.com/nature/sounds/lake-waves-lapping-on-the-shore-02.mp3" type="audio/mpeg" /></audio>
@@ -30,6 +31,7 @@ mp3 resource : www.soundjay.com/
     <audio id="audio0"><source src="https://www.soundjay.com/free-music/sounds/heart-of-the-sea-01.mp3" type="audio/mpeg" /></audio>
     
     <div id="base">
+    <div id="time" style="position:absolute; top:2%; left:50%;">00</div>
     <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>    
     <img id="blocks1" src="./game_images/laundry1.gif" ontouchstart="blockFunction(event)"/>
     <img id="blocks2" src="./game_images/sesu2.gif" ontouchstart="blockFunction(event)"/>
@@ -226,7 +228,7 @@ mp3 resource : www.soundjay.com/
                 time += 1;
             }
 
-            document.getElementById("time").innerHTML = "time : " + time;}, 1000);
+            document.getElementById("time").innerHTML = time;}, 1000);
             setInterval(function(){ 
             if(waterLevel > 200){
                 waterLevel = 200;
@@ -311,6 +313,7 @@ mp3 resource : www.soundjay.com/
             window.location.href="index.html";
         }
     </script>
+    
     
 </body>
 </html>
