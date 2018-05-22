@@ -8,10 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		 <style>
-		 @font-face {
-    font-family: 'gwibbleregular';
-    src: url('fonts/gwibble_-webfont.woff2') format('woff2'),
-         url('fonts/gwibble_-webfont.woff') format('woff');
+@font-face {
+    font-family: 'water_parkregular';
+    src: url('fonts/water_park-webfont.woff2') format('woff2'),
+         url('fonts/water_park-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -25,7 +25,7 @@
 
 }
     body{
-		background: url("images/bg2.jpg");
+		background: url("images/bg4.jpg");
 		}
   	.navbar-toggle{
     float: left;
@@ -38,35 +38,41 @@
 		}
 		#title{
 		font-size: 30pt;
-		margin-left: 75%;
+		margin-left: 70%;
 		margin-top: 25%;
 		font-family: grinchedregular ;
-		color: cyan;
+		color: #d3f3ff;
+		  text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
+			 font-size: 12vw;
+  z-index: 1000;
 		}
 		#sun{
 		height: 50px;
-		weight:50px;
+		width:50px;
 		}
 		.car{
 		font-family:grinchedregular; 
-		transform: translate(-110px,45px);
-		color: blue;
+		transform: translate(0px,15px);
+		color: #2d89e5;
+		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 		font-weight: solid;
+		font-size: 40pt;
 		}
 		#tip{
 		font-family:grinchedregular; 
 		transform: translate(0px, -40px);
-		color: blue;
+		color: #2d89e5;
+		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 		font-weight: solid;
+		font-size: 40pt;
 		}
-			 #vid{
-				 transform: translateY(200px);
-			 }
 		.btn{
-		transform: translate(90px, 80px);
-		width: 50%;
-		height:20%;
-		background-color: purple;
+		transform: translate(50px, 100px);
+		width: 72%;
+		height:14.5%;
+		background: url('images/btn2.png');
+	  position: absolute;
+		border: none;
 		}
 		.collapse{
 		background-color: white;
@@ -78,8 +84,9 @@
 		background-color: gray;
 		}
 			 #logged{
-		font-size: 30pt;
-		color: cyan;
+		font-size: 25pt;
+		color: #a8e0f4;
+		transform: translate(0px, 5px);
 		}
 		#dropdownMenuButton{
 		transform: translate(120px, 20px);
@@ -94,8 +101,27 @@
 		.dropdown-item{
 		font-size: 15pt;
 		}
+#vid{
+		transform: translateX(0px);
+		}
+        @media only screen and (max-width: 330px) {
+            #title {
+                font-size: 30pt;
+                margin-left: 40%;
+                margin-top: 25%;
+                font-family: grinchedregular;
+                color: cyan;
+            }
 
-  </style>
+            #dropdownMenuButton {
+                /* transform: translate(24%, 3%);*/
+                transform: translate(70px, 20px);
+                background-color: #2e61a0;
+                border: #2e61a0;
+            }
+
+        }
+    </style>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -147,6 +173,7 @@
 			
 			
 			</script>
+			
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#" style="background-color: gray"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
@@ -172,7 +199,7 @@
 			</div>
 		</div>
 	</nav>
-	 <div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -227,7 +254,8 @@
     </a>
     </div>
 		<a href="game_page.html" class="btn btn-info btn-lg">
-        <span style="font-family: grinchedregular; font-size: 20pt">Save the Salmon</span>
+        <span style="font-family: grinchedregular; font-size: 31pt;  
+				text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;">Save the Salmon</span>
     </a>
 
     <!-- This is used to config Firebase -->
