@@ -74,15 +74,16 @@ shows up game score( number 31 my score), change to higher score,instructions,
                 document.getElementById("audio0").volume = 0.5;
             }
             
-            if(au.paused){
+            if(au.paused && init ==1){
                 au.play();
             }
+            init = 1;
         } 
         function pauseAudio(e) {
             if(!au.paused){
                 au.pause();
             }
-            init = 1;
+            
         }
         if(localStorage.getItem("loginStatus") == "false"){        
             var div1 = document.createElement("div");
@@ -312,6 +313,14 @@ shows up game score( number 31 my score), change to higher score,instructions,
             window.location.href="index.html";
         }
     </script>
+    
+    
+   
+    
+    
+                        
+    
+    
     
 </body>
 </html>
