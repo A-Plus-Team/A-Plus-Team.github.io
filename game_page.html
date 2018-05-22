@@ -9,15 +9,14 @@
 The source code of this webpage contains a game.
 programmer: Jaeheon Jung
 art asset designer : Jaeheon Jung
+
 The method of the game : 
 A user has to turn off the faucets that are randomely turned on and takes items
 to save water.
 
 2018 All copyright reserved
 
-time, item sound - done
-salmon, difficulty,
-shows up game score( number 31 my score), change to higher score,instructions,
+mp3 resource : www.soundjay.com/
 -->
 
     <div id = "title">
@@ -70,6 +69,7 @@ shows up game score( number 31 my score), change to higher score,instructions,
                 document.getElementById("audio2").play();
                 document.getElementById("audio2").pause();
                 document.getElementById("audio0").play();
+                
                 document.getElementById("audio0").volume = 0.5;
             }
             
@@ -209,7 +209,7 @@ shows up game score( number 31 my score), change to higher score,instructions,
                 var max = Math.floor((Math.random() * 2) + 1);
                 for(var i = 0; i<max; i++){
                     var source = Math.floor((Math.random() * 10) + 1) - 1;
-                    if(!blockVariables[source] && setMenu==0){
+                    if(!blockVariables[source] && setMenu==0 && time>=4){
                         playAudio(1);
                     if( 0 == source){document.getElementById("blocks0").src = "./game_images/stove2w.gif";           }else if( 1 == source){document.getElementById("blocks1").src = "./game_images/laundry1w.gif" ;}else if( 2 == source){document.getElementById("blocks2").src = "./game_images/sesu2w.gif";}else if( 3 == source){document.getElementById("blocks3").src = "./game_images/bottle2w.gif";}else if( 4== source){document.getElementById("blocks4").src = "./game_images/sink2w.gif";}else if( 5 == source){document.getElementById("blocks5").src = "./game_images/sink2w.gif";}else if( 6 == source){document.getElementById("blocks6").src = "./game_images/sesu2w.gif";}else if( 7 == source){document.getElementById("blocks7").src = "./game_images/sesu2w.gif";}else if( 8 == source){document.getElementById("blocks8").src = "./game_images/shower1w.gif";}else if( 9 == source){document.getElementById("blocks9").src = "./game_images/hose1w.gif";}blockVariables[source] = !blockVariables[source];
                         
@@ -311,14 +311,6 @@ shows up game score( number 31 my score), change to higher score,instructions,
             window.location.href="index.html";
         }
     </script>
-    
-    
-   
-    
-    
-                        
-    
-    
     
 </body>
 </html>
