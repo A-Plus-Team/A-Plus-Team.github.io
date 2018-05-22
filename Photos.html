@@ -212,23 +212,28 @@
         .demo {
             opacity: 0.6;
         }
-	     #logged{
+	    
+	#logged {
 		font-size: 25pt;
 		color: cyan;
-		}
-		#dropdownMenuButton{
+	}
+	    
+	#dropdownMenuButton {
 		transform: translate(120px, 20px);
 		background-color: #2e61a0;
 		border: #2e61a0;
-		}
-		#menu{
+	}
+	    
+	#menu {
 		float: right;
 		transform: translateX(210px);
-	        font-family: grinchedregular;
-		}
-		.dropdown-item{
+		font-family: grinchedregular;
+	}
+	    
+	.dropdown-item {
 		font-size: 15pt;
-		}
+	}
+	    
         @media only screen and (max-width: 330px) {
             #title {
                 font-size: 30pt;
@@ -272,7 +277,7 @@
  
 </div>
 			</div>
-			<script>
+<script>
       if(localStorage.getItem("loginStatus") == "true") {
 			var name;
 			var a1 = document.getElementById("username");
@@ -285,7 +290,7 @@
 			a2.setAttribute("onclick", "logout()");
 			a2.setAttribute("href", "index.html");
 			a2.appendChild(text2);
-      } else{
+      } else {
 			var a1 = document.getElementById("username");
 			var text = document.createTextNode("Log-in");
 			a1.setAttribute("href", "login.html");
@@ -295,13 +300,14 @@
 			var text2 = document.createTextNode("Sign-up");
 			a2.setAttribute("href", "signup.html");
 			a2.appendChild(text2);
-			}
-			function logout(){
+      }
+				
+			function logout() {
 			localStorage.setItem("loginStatus", "false");
-			}
+      }
 			
 			
-			</script>
+</script>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="index.html"><span style="color:purple; font-family:grinchedregular; font-size: 20pt">Home</span></a></li>
