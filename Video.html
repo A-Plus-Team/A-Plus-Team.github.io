@@ -76,16 +76,19 @@
 	    font-size: 25pt;
 	    color: cyan;
 	}
+		
 	#dropdownMenuButton {
 	    transform: translate(120px, 20px);
 	    background-color: #2e61a0;
 	    border: #2e61a0;
 	}
+		
 	#menu {
 	    float: right;
 	    transform: translateX(210px);
 	    font-famil: grinchedregular;
 	}
+		
 	.dropdown-item {
 	    font-size: 15pt;
 	}
@@ -221,15 +224,14 @@
                 case 6:
                     day = "780 million people worldwide lack access to a clean water source.";
 
-            }
+        }
             var i = 0;
             function myFunction() {
                 
                 if (i == 0) {
             document.getElementById("demo").innerHTML = "Did you know? " + day;
                     i = i + 1;
-                    }
-                else {
+                } else {
                     document.getElementById("demo").innerHTML = "";
                     i = i - 1;
                 }
