@@ -6,6 +6,7 @@
 		position:absolute; top:0px; left:0px; height:80px; width:320px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
 	}
 	#base{
+		touch-action: none;
 		background-image: url("./game_images/house10.png");
 		background-size: cover;
 		position:absolute;  top:80px; left:0px; width:320px; height:432px;  border: solid 1px;
@@ -65,7 +66,7 @@
 		position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
 	}
 	#base{
-			
+		touch-action: none;
 		background-image: url("./game_images/house10.png");
 		background-size: cover;
 		position:absolute;  top:80px; left:0px;  width:375px; height:507px; border: solid 1px;
@@ -126,7 +127,7 @@
 		position:absolute; top:0px; left:0px; height:80px; width:414px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
 	}
 	#base{
-			
+		touch-action: none;
 		background-image: url("./game_images/house10.png");
 		background-size: cover;
 		position:absolute;  top:80px; left:0px; width:414px; height:560px; border: solid 1px;
