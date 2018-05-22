@@ -70,7 +70,6 @@ shows up game score( number 31 my score), change to higher score,instructions,
                 document.getElementById("audio2").play();
                 document.getElementById("audio2").pause();
                 document.getElementById("audio0").play();
-                document.getElementById("audio0").pause();
                 document.getElementById("audio0").volume = 0.5;
             }
             
@@ -204,7 +203,6 @@ shows up game score( number 31 my score), change to higher score,instructions,
         
         var truePrac = true;
         function randFunction() {
-            document.getElementById("audio0").play();
             setInterval(function(){
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
             if(spawnRatio==1){
