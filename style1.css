@@ -1,15 +1,27 @@
 
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+	#time{
+		font-family: 'Kaushan Script', cursive;
+		text-decoration-color: #ff1111;
+        text-decoration-style: wavy;
+		color : aqua;
+        text-shadow: -1px 0 darkblue, 0 1px darkblue, 1px 0 darkblue, 0 -1px darkblue;
+	}
 @media screen and (min-width: 0px) and (max-width: 347.4px){
 	#blocks0{left:0px;top:0px;width:34.64705882352941%;height:auto;position:absolute; } #blocks1{left:200px;top:0px;width:34.64705882352941%;height:auto;position:absolute; } #blocks2{left:0px;top:111.23529411764704px;height:18.108384458077712%;width:auto;position:absolute; } #blocks3{left:65.84867075664621px;top:111.96470588235296px;height:18.108384458077712%;width:auto;position:absolute; } #blocks4{left:150px;top:98.47058823529412px;height:18.108384458077712%;width:auto;position:absolute; } #blocks5{left:284px;top:97.74117647058824px;height:18.108384458077712%;width:auto;position:absolute; } #blocks6{left:193.59509202453987px;top:109.77647058823528px;height:18.108384458077712%;width:auto;position:absolute; } #blocks7{left:285px;top:319.11764705882354px;height:18.108384458077712%;width:auto;position:absolute;transform: scaleX(-1); } #blocks8{left:190.96114519427405px;top:209.7058823529412px;width:22.108384458077712%;height:auto;position:absolute; } #blocks9{left:85px;top:274.25882352941176px;width:34.64705882352941%;height:auto;position:absolute; } 
 	#items0{left:160.67075664621677px;top:44.858823529411765px;height:13%;width:auto;position:absolute; } #items1{left:32.92433537832311px;top:196.21176470588236px;height:13%;width:auto;position:absolute; } #items2{left:257.4683026584867px;top:271.70588235294116px;height:13%;width:auto;position:absolute; }
 	#title{
-		position:absolute; top:0px; left:0px; height:80px; width:320px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
+		position:absolute; top:0px; left:0px; height:35px; width:320px; border:solid 1px; background-color:azure; text-align: center;
+		font-size:15px;color:darkblue;line-height: 6.5px;
+	}
+	#time{
+		font-size:18px;
 	}
 	#base{
 		touch-action: none;
 		background-image: url("./game_images/house10.png");
 		background-size: cover;
-		position:absolute;  top:80px; left:0px; width:320px; height:432px;  border: solid 1px;
+		position:absolute;  top:35px; left:0px; width:320px; height:432px;  border: solid 1px;
 	}
 
 	#fish{
@@ -54,7 +66,7 @@
 		transform: scale(0.8);
 	}
 	#belowest{
-		position:absolute; top:514px; left:0px; height:80px; width:320px; border:solid 1px; background-color:#382F71;border:solid 1px;
+		position:absolute; top:477px; left:0px; height:80px; width:320px; border:solid 1px; background-color:#382F71;border:solid 1px;
 	}
 }
 
@@ -63,13 +75,17 @@
 	#blocks0{left:0px;top:0px;width:40.634453781512605%;height:auto;position:absolute;} #blocks1{left:216.64008179959103px;top:0px;width:40.634453781512605%;height:auto;position:absolute; } #blocks2{left:0px;top:130.4579831932773px;height:21.201431492842538%;width:auto;position:absolute; } #blocks3{left:77.0961145194274px;top:131.31344537815127px;height:21.201431492842538%;width:auto;position:absolute; } #blocks4{left:167.29856850715746px;top:115.4873949579832px;height:21.201431492842538%;width:auto;position:absolute; } #blocks5{left:323.0327198364008px;top:114.63193277310924px;height:21.201431492842538%;width:auto;position:absolute; } #blocks6{left:226.66257668711654px;top:128.74705882352941px;height:21.201431492842538%;width:auto;position:absolute; } #blocks7{left:323.8036809815951px;top:374.264705882353px;height:21.201431492842538%;width:auto;position:absolute; transform: scaleX(-1);} #blocks8{left:223.5787321063395px;top:245.9453781512605px;width:25.201431492842538%;height:auto;position:absolute; } #blocks9{left:68.23006134969326px;top:321.653781512605px;width:40.634453781512605%;height:auto;position:absolute; } 
 	#items0{left:188.11451942740288px;top:52.6109243697479px;height:13%;width:auto;position:absolute; visibility:hidden;} #items1{left:38.5480572597137px;top:230.11932773109243px;height:13%;width:auto;position:absolute; visibility:hidden;} #items2{left:301.44580777096115px;top:318.65966386554624px;height:13%;width:auto;position:absolute; visibility:hidden;}
 	#title{
-		position:absolute; top:0px; left:0px; height:80px; width:375px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
+		position:absolute; top:0px; left:0px; height:40px; width:375px; border:solid 1px; background-color:azure; text-align: center;
+		font-size:18px;color:darkblue; line-height: 7.5px;
+	}
+	#time{
+		font-size:21px;
 	}
 	#base{
 		touch-action: none;
 		background-image: url("./game_images/house10.png");
 		background-size: cover;
-		position:absolute;  top:80px; left:0px;  width:375px; height:507px; border: solid 1px;
+		position:absolute;  top:40px; left:0px;  width:375px; height:507px; border: solid 1px;
 	}
 
 	#fish{
@@ -115,22 +131,27 @@
 		min-height:3px;
 	}
 	#belowest{
-		position:absolute; top:589px; left:0px; height:80px; width:375px; border:solid 1px; background-color:#382F71;border:solid 1px;
+		position:absolute; top:547px; left:0px; height:80px; width:375px; border:solid 1px; background-color:#382F71;border:solid 1px;
 	}
 }
 
 
-@media screen and (min-width: 394.6px){
+@media screen and (min-width: 394.6px) and (max-width: 1280px){
+
 	#blocks0{left:0px;top:0px;width:37%;height:auto;position:absolute; } #blocks1{left:239.0511247443763px;top:0px;width:40%;height:auto;position:absolute; } #blocks2{left:0px;top:143.78571428571428px;height:20%;width:auto;position:absolute; } #blocks3{left:85.07157464212679px;top:144.72857142857146px;height:20%;width:auto;position:absolute; } #blocks4{left:184.60531697341514px;top:127.28571428571429px;height:20%;width:auto;position:absolute; } #blocks5{left:356.44989775051124px;top:126.34285714285714px;height:20%;width:auto;position:absolute; } #blocks6{left:250.11042944785274px;top:141.9px;height:20%;width:auto;position:absolute; } #blocks7{left:357.30061349693256px;top:412.50000000000006px;height:20%;width:auto;position:absolute;transform: scaleX(-1); } #blocks8{left:246.7075664621677px;top:271.07142857142856px;width:24%;height:auto;position:absolute; } #blocks9{left:75.28834355828221px;top:354.5142857142857px;width:40%;height:auto;position:absolute; } 
 	#items0{left:207.57464212678937px;top:57.98571428571428px;height:13%;width:auto;position:absolute; } #items1{left:42.535787321063395px;top:253.62857142857143px;height:13%;width:auto;position:absolute; } #items2{left:332.6298568507157px;top:351.2142857142857px;height:13%;width:auto;position:absolute; }
 	#title{
-		position:absolute; top:0px; left:0px; height:80px; width:414px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
+		position:absolute; top:0px; left:0px; height:45px; width:414px; border:solid 1px; background-color:azure; text-align: center;font-size:20px;color:darkblue;
+		 line-height: 10.0px; font-family: 'Kaushan Script', cursive;
+	}
+	#time{
+		font-size:25px;
 	}
 	#base{
 		touch-action: none;
 		background-image: url("./game_images/house10.png");
 		background-size: cover;
-		position:absolute;  top:80px; left:0px; width:414px; height:560px; border: solid 1px;
+		position:absolute;  top:45px; left:0px; width:414px; height:560px; border: solid 1px;
 	}
 
 	#fish{
@@ -177,6 +198,6 @@
 	}
 	
 	#belowest{
-		position:absolute; top:642px; left:0px; height:80px; width:414px; border:solid 1px; background-color:#382F71;border:solid 1px;
+		position:absolute; top:605px; left:0px; height:80px; width:414px; border:solid 1px; background-color:#382F71;border:solid 1px;
 	}
 }
