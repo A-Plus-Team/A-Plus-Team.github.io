@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width"/>
+<meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="style1.css"/>
 </head>
 <body>    
-    
-    
-    
-    
 <!--
 The source code of this webpage contains a game.
 programmer: Jaeheon Jung
@@ -18,11 +14,11 @@ A user has to turn off the faucets that are randomely turned on and takes items
 to save water.
 
 2018 All copyright reserved
+
+time, item sound - done
+salmon, difficulty,
+shows up game score( number 31 my score), change to higher score,instructions,
 -->
-    
-    
-    
-    
 
     <div id = "title">
         <p><b>Save Our Water!</b></p>
@@ -32,6 +28,8 @@ to save water.
 
     <audio id="audio1"><source src="https://www.soundjay.com/nature/sounds/lake-waves-lapping-on-the-shore-02.mp3" type="audio/mpeg" /></audio>
     <audio id="audio2"><source src="https://www.soundjay.com/button/sounds/button-09.mp3" type="audio/mpeg" /></audio>
+    <audio id="audio0"><source src="https://www.soundjay.com/free-music/sounds/heart-of-the-sea-01.mp3" type="audio/mpeg" /></audio>
+    
     <div id="base">
     <img id="blocks0" src="./game_images/stove2.gif" ontouchstart="blockFunction(event)"/>    
     <img id="blocks1" src="./game_images/laundry1.gif" ontouchstart="blockFunction(event)"/>
@@ -61,9 +59,21 @@ to save water.
         var time = 0;
         var setMenu = 0;
         
+        var init = 0;
+        
         var au = document.getElementById("audio1");
         au.loop = true;
         function playAudio(e) { 
+            if(init == 0){
+                au.play();
+                au.pause();
+                document.getElementById("audio2").play();
+                document.getElementById("audio2").paude();
+                document.getElementById("audio0").play();
+                document.getElementById("audio0").paude();
+                document.getElementById("audio0").volume = 0.5;
+            }
+            
             if(au.paused){
                 au.play();
             }
@@ -72,6 +82,7 @@ to save water.
             if(!au.paused){
                 au.pause();
             }
+            init = 1;
         }
         if(localStorage.getItem("loginStatus") == "false"){        
             var div1 = document.createElement("div");
@@ -83,7 +94,7 @@ to save water.
             div1.style.textAlign = "center";
             div1.style.fontSize = "24px";
             div1.style.color = "azure";
-            div1.innerHTML = "<br>Do you want to log in to save score?<br><br><input type='button' value='yes' onclick='ynFunction1()'/>&emsp;<input type='button' value='no' onclick='au.play();au.pause();randFunction();div1.remove();'/><br>";
+            div1.innerHTML = "<br>Do you want to log in to save score?<br><br><input type='button' value='yes' onclick='ynFunction1()'/>&emsp;<input type='button' value='no' onclick='playAudio(event);randFunction();div1.remove();'/><br>";
             document.getElementById("base").appendChild(div1);
         }else{
             var div2 = document.createElement("div");
@@ -100,7 +111,7 @@ to save water.
             div2.style.textAlign = "center";
             div2.style.fontSize = "30px";
             div2.style.color = "azure";
-            div2.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='au.play();au.pause();randFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='ynFunction2();'/><br>";
+            div2.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='playAudio(event);randFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='ynFunction2();'/><br>";
             document.getElementById("base").appendChild(div2);
         }
         function scoreLine(){
@@ -191,7 +202,8 @@ to save water.
         }
         
         var truePrac = true;
-        function randFunction() {  
+        function randFunction() {
+            document.getElementById("audio0").play();
             setInterval(function(){
             var spawnRatio = Math.floor((Math.random() * 2) + 1);
             if(spawnRatio==1){
