@@ -72,8 +72,8 @@
             blockVariables[i] = false;
         }
         
-        //var au = document.getElementById("audio1");
-        var au = new Audio("https://www.soundjay.com/free-music/sounds/heart-of-the-sea-01.mp3");
+        var au = document.getElementById("audio1");
+        var au0 = new Audio("https://www.soundjay.com/free-music/sounds/heart-of-the-sea-01.mp3");
         au.loop = true;
         function playAudio() { 
             if(initAudioSet == 0){
@@ -84,6 +84,7 @@
 //                document.getElementById("audio0").play();
 //                
 //                document.getElementById("audio0").volume = 0.7;
+                au0.play();
             }
             
             if(au.paused && initAudioSet ==1){
@@ -362,7 +363,7 @@
             window.location.href="index.html";
         }
     </script>
-   
+    
 </body>
 </html>
 
