@@ -108,7 +108,7 @@
                 background-color: #2e61a0;
                 border: #2e61a0;
             }
-          }
+        }
     
 	@media only screen and (min-width: 500px) {
 	    .navbar-header {
@@ -124,14 +124,14 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<img id = "sun" alt="sun" src="images/hp.png">
-				</button>
+				<img id = "sun" alt="sun" src="images/hp.png">
+		</button>
                 <a class="navbar-brand" href="index.html">
-                    <div id="title">Wave</div>
+                    	<div id="title">Wave</div>
                 </a>
-		    		  <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-    <span class="glyphicon glyphicon-user" id="logged"></span>
-  </button>
+		<button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+    			<span class="glyphicon glyphicon-user" id="logged"></span>
+                </button>
   <div class="dropdown-menu" id="menu" aria-labelledby="dropdownMenuButton">
 	<ul class="nav">
 	<li>
@@ -141,9 +141,9 @@
     <a class="dropdown-item" id="logout"></a></li>
 	</ul>
  
-</div>
+  </div>
 			</div>
-			<script>
+	<script>
          if(localStorage.getItem("loginStatus") == "true") {
 			var name;
 			var a1 = document.getElementById("username");
@@ -167,12 +167,12 @@
 			a2.setAttribute("href", "signup.html");
 			a2.appendChild(text2);
 	}
-			function logout(){
+			function logout() {
 			localStorage.setItem("loginStatus", "false");
 	}
 			
 			
-			</script>
+	</script>
             
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
