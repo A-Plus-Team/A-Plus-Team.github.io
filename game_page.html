@@ -341,12 +341,22 @@
                         document.getElementById("base").appendChild(div1);
                     }else if(waterLevel <= 45){
                         if( !waterLevel30percent ){
+                            var p = document.createElement("p");
+                            p.setAttribute("id","help");
+                            p.style.position = "absolute";
+                            p.style.top = "-0.5%";
+                            p.style.left = "5%";
+                            p.innerHTML = "HELP!";
+                            document.getElementById("fish").appendChild(p);
+                            
+
                             document.getElementById("fish").style.backgroundImage = "url('./game_images/fish2.gif')";   
                             waterLevel30percent = !waterLevel30percent;
                         }
                         
                     }else if(waterLevel > 45){
                         if( waterLevel30percent){
+                            document.getElementById("help").remove();
                             document.getElementById("fish").style.backgroundImage = "url('./game_images/fish.gif')";   
                             waterLevel30percent = !waterLevel30percent;
                         }    
