@@ -24,7 +24,7 @@
     
     <div id = "title">
         <br><br>
-        <b>Save Our Water!</b>
+        <b>Save Our Salmon!</b>
         <div id="score" style="position:absolute; top:55%; left:75%;">score : 0</div>  
     </div>
 
@@ -63,6 +63,7 @@
         var setMenu = 0;
         var initAudioSet = 0;
         var waterLevel = document.getElementById("water").getBoundingClientRect().height;
+        var waterLevel30percent = false;
         
         var blockVariables = [];
         for(var i = 0 ; i<10 ; i++){
@@ -338,6 +339,17 @@
 
                         div1.appendChild(btn3);
                         document.getElementById("base").appendChild(div1);
+                    }else if(waterLevel <= 45){
+                        if( !waterLevel30percent ){
+                            document.getElementById("fish").style.backgroundImage = "url('./game_images/fish2.gif')";   
+                            waterLevel30percent = !waterLevel30percent;
+                        }
+                        
+                    }else if(waterLevel > 45){
+                        if( waterLevel30percent){
+                            document.getElementById("fish").style.backgroundImage = "url('./game_images/fish.gif')";   
+                            waterLevel30percent = !waterLevel30percent;
+                        }    
                     }
                     document.getElementById("water").style.height = waterLevel + "px";
                     }
