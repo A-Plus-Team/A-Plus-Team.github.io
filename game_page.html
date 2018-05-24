@@ -25,7 +25,7 @@
     <div id = "title">
         <br><br>
         <b>Save Our Salmon!</b>
-        <div id="score" style="position:absolute; top:55%; left:75%;">score : 0</div>  
+        <div id="score" style="position:absolute; top:55%; left:75%; ">score : 0</div>  
     </div>
 
     <audio id="audio1"><source src="https://www.soundjay.com/nature/sounds/lake-waves-lapping-on-the-shore-02.mp3" type="audio/mpeg" /></audio>
@@ -108,37 +108,53 @@
             var div2 = document.createElement("div");
             div2.setAttribute("id","gameprevious");
             div2.style.backgroundColor = "#382F71";
-            div2.style.position = "absolute";
-            div2.style.left = "13%";
-            div2.style.top = "15%";
-            div2.style.width = "280px";
-            div2.style.height = "200px";
             div2.style.opacity = "0.7";
             div2.style.border = "solid";
             div2.style.zIndex = "6";
             div2.style.textAlign = "center";
             div2.style.fontSize = "30px";
             div2.style.color = "azure";
-            div2.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='playAudio();initFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='indexPage();'/><br><input type='button' value='How to Play' onclick='tutorial();div2.remove();'/>";
+            div2.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='playAudio();initFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='indexPage();'/><br><br><input type='button' value='How to Play' onclick='tutorial();div2.remove();'/>";
             document.getElementById("base").appendChild(div2);
         }
         function tutorial(){
-//            var div3 = document.createElement("div");
-//            div3.setAttribute("id","tutorial");
-//            div3.style.backgroundColor = "#382F71";
-//            div3.style.position = "absolute";
-//            div3.style.left = "13%";
-//            div3.style.top = "15%";
-//            div3.style.width = "280px";
-//            div3.style.height = "200px";
-//            div3.style.opacity = "0.7";
-//            div3.style.border = "solid";
-//            div3.style.zIndex = "6";
-//            div3.style.textAlign = "center";
-//            div3.style.fontSize = "30px";
-//            div3.style.color = "azure";
-//            div3.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='playAudio();initFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='indexPage();'/><br><input type='button' value='How to Play' onclick=''/>";
-//            document.getElementById("base").appendChild(div3);
+            
+            var div4 = document.createElement("div");
+            div4.setAttribute("id","tutorialBase");
+            div4.style.position = "absolute";
+            div4.style.left = "8%";
+            div4.style.top = "15%";
+            
+            div4.style.backgroundColor = "#E2F5C7";
+            div4.style.border = "solid";
+            div4.style.zIndex = "6";
+            div4.style.width = "80%";
+            div4.style.height = "80%";
+  
+            
+            var btn1 = document.createElement("input");
+            btn1.setAttribute("id","play");
+            btn1.style.position = "absolute";
+            btn1.style.top = "90%";
+            btn1.style.left = "35%";
+            btn1.type = "button";
+            btn1.setAttribute("value", "Play the Game!");
+            btn1.setAttribute("onclick", "playAudio();initFunction();document.getElementById('tutorialBase').remove();");
+            div4.appendChild(btn1);
+            
+            var div3 = document.createElement("div");
+            div3.setAttribute("id","tutorial");
+            
+            div3.style.position = "absolute";
+            div3.style.left = "15%";
+            div3.style.top = "0%";
+            div3.style.width = "80%";
+            div3.style.zIndex = "7";
+            div3.style.fontSize = "18px";
+            div3.style.color = "black";
+            div3.innerHTML = "<br>&emsp;&emsp;&emsp;<b>How to Play</b><br>1. When the game starts, one or more of the faucets will be randomly turned on. <br><br>2. As the water leaks, the water level at the bottom will decrease. <br><br>3. Save our salmon by turning off the faucets, and it will give you a score! <br><br>4. The water level will increase if you collect the water drops. <br><br>5. When the water level reaches bottom, the game will be over.";
+            div4.appendChild(div3);
+            document.getElementById("base").appendChild(div4);
         }
         
         function scoreLine(){
@@ -250,7 +266,7 @@
                 var max = Math.floor((Math.random() * 2) + 1);
                 for(var i = 0; i<max; i++){
                     var source = Math.floor((Math.random() * 10) + 1) - 1;
-                    if(!blockVariables[source] && setMenu==0 ){
+                    if(!blockVariables[source] && setMenu==0 && time>=4){
                         playAudio();
                         if( 0 == source){
                             document.getElementById("blocks0").src = "./game_images/stove2w.gif";           
@@ -304,7 +320,7 @@
             var numOfFaucets = 0;
             for(var i = 0 ; i < 10 ; i++){
                 if(blockVariables[i]){
-                waterLevel -= 2.0;
+                waterLevel -= 1.0;
                 numOfFaucets++;
                 if(gameMenuSpawn){
                     if(waterLevel <= 0){
