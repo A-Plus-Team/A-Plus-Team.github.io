@@ -48,7 +48,7 @@
 	}
 	#title{
 		position:absolute; top:0px; left:0px; height:35px; width:320px; border:solid 1px; background-color:azure; text-align: center;
-		font-size:15px;color:darkblue;line-height: 6.5px;
+		font-size:15px;color:darkblue;line-height: 6.5px; font-family: 'Kaushan Script', cursive;
 	}
 	#time{
 		font-size:18px;
@@ -62,7 +62,8 @@
 
 	#fish{
 		height:170px;
-		opacity: 0.9;
+		background-image: url("./game_images/fish.gif");
+		background-size: cover;
 		z-index: 5;
 	}
 	#water{
@@ -73,7 +74,7 @@
 		background-color:aqua;
 		height:170px;
 		width:90px;
-		opacity: 0.9;
+		opacity: 0.7;
 		max-height:170px;
 		min-height:3px;
 	}
@@ -155,7 +156,7 @@
 	}
 	#title{
 		position:absolute; top:0px; left:0px; height:40px; width:375px; border:solid 1px; background-color:azure; text-align: center;
-		font-size:18px;color:darkblue; line-height: 7.5px;
+		font-size:18px;color:darkblue; line-height: 7.5px; font-family: 'Kaushan Script', cursive;
 	}
 	#time{
 		font-size:21px;
@@ -169,7 +170,8 @@
 
 	#fish{
 		height:200px;
-		opacity: 0.9;
+		background-image: url("./game_images/fish.gif");
+		background-size: cover;
 		z-index: 5;
 	}
 	#gamestart{
@@ -205,7 +207,7 @@
 		background-color:aqua;
 		height:200px;
 		width:90px;
-		opacity: 0.9;
+		opacity: 0.6;
 		max-height:200px;
 		min-height:3px;
 	}
@@ -277,7 +279,8 @@
 
 	#fish{
 		height:200px;
-		opacity: 0.9;
+		background-image: url("./game_images/fish.gif");
+		background-size: cover;
 		z-index: 5;
 	}
 	#water{
@@ -288,7 +291,7 @@
 		background-color:aqua;
 		height:200px;
 		width:90px;
-		opacity: 0.9;
+		opacity: 0.5;
 		max-height:200px;
 		min-height:3px;
 	}
