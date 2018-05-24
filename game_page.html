@@ -119,9 +119,28 @@
             div2.style.textAlign = "center";
             div2.style.fontSize = "30px";
             div2.style.color = "azure";
-            div2.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='playAudio();initFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='indexPage();'/><br>";
+            div2.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='playAudio();initFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='indexPage();'/><br><input type='button' value='How to Play' onclick='tutorial();div2.remove();'/>";
             document.getElementById("base").appendChild(div2);
         }
+        function tutorial(){
+//            var div3 = document.createElement("div");
+//            div3.setAttribute("id","tutorial");
+//            div3.style.backgroundColor = "#382F71";
+//            div3.style.position = "absolute";
+//            div3.style.left = "13%";
+//            div3.style.top = "15%";
+//            div3.style.width = "280px";
+//            div3.style.height = "200px";
+//            div3.style.opacity = "0.7";
+//            div3.style.border = "solid";
+//            div3.style.zIndex = "6";
+//            div3.style.textAlign = "center";
+//            div3.style.fontSize = "30px";
+//            div3.style.color = "azure";
+//            div3.innerHTML = "<br>start game?<br><br><input type='button' value='yes' onclick='playAudio();initFunction();div2.remove();'/>&emsp;<input type='button' value='no' onclick='indexPage();'/><br><input type='button' value='How to Play' onclick=''/>";
+//            document.getElementById("base").appendChild(div3);
+        }
+        
         function scoreLine(){
             var tmpStr ="";
             
@@ -231,7 +250,7 @@
                 var max = Math.floor((Math.random() * 2) + 1);
                 for(var i = 0; i<max; i++){
                     var source = Math.floor((Math.random() * 10) + 1) - 1;
-                    if(!blockVariables[source] && setMenu==0 && time>=4){
+                    if(!blockVariables[source] && setMenu==0 ){
                         playAudio();
                         if( 0 == source){
                             document.getElementById("blocks0").src = "./game_images/stove2w.gif";           
@@ -285,7 +304,7 @@
             var numOfFaucets = 0;
             for(var i = 0 ; i < 10 ; i++){
                 if(blockVariables[i]){
-                waterLevel -= 1.0;
+                waterLevel -= 2.0;
                 numOfFaucets++;
                 if(gameMenuSpawn){
                     if(waterLevel <= 0){
@@ -339,7 +358,7 @@
 
                         div1.appendChild(btn3);
                         document.getElementById("base").appendChild(div1);
-                    }else if(waterLevel <= 45){
+                    }else if(waterLevel <= 100){
                         if( !waterLevel30percent ){
                             var p = document.createElement("p");
                             p.setAttribute("id","help");
@@ -354,7 +373,7 @@
                             waterLevel30percent = !waterLevel30percent;
                         }
                         
-                    }else if(waterLevel > 45){
+                    }else if(waterLevel > 100){
                         if( waterLevel30percent){
                             document.getElementById("help").remove();
                             document.getElementById("fish").style.backgroundImage = "url('./game_images/fish.gif')";   
