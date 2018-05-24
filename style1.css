@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
 	#time{
 		font-family: 'Kaushan Script', cursive;
-		text-decoration-color: #ff1111;
+		text-decoration-color: red;
         text-decoration-style: wavy;
 		color : aqua;
+        text-shadow: -1px 0 darkblue, 0 1px darkblue, 1px 0 darkblue, 0 -1px darkblue;
+	}
+	#help{
+		font-family: 'Kaushan Script', cursive;
+		text-decoration-color: red;
+        text-decoration-style: wavy;
+		color : pink;
         text-shadow: -1px 0 darkblue, 0 1px darkblue, 1px 0 darkblue, 0 -1px darkblue;
 	}
 @media screen and (min-width: 0px) and (max-width: 347.4px){
