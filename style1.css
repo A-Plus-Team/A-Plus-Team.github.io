@@ -66,6 +66,10 @@
 		background-size: cover;
 		position:absolute;  top:35px; left:0px; width:320px; height:432px;  border: solid 1px;
 	}
+	#tutorial{
+		line-height: 15px;
+		font-size:11px;
+	}
 
 	#fish{
 		height:170px;
@@ -90,9 +94,21 @@
 		top:10%;
 		left:7%;
 		width:280px;
-		height:200px;
+		height:220px;
 		transform: scale(0.8);
+		line-height: 25px;
 	}
+	#gameprevious{
+		position: absolute;
+		top:10%;
+		left:7%;
+		width:280px;
+		height:220px;
+		transform: scale(0.8);
+		line-height: 25px;
+	}
+	
+	
 	#gameover{
 		position:absolute;
 		top :25%;
@@ -174,7 +190,10 @@
 		background-size: cover;
 		position:absolute;  top:40px; left:0px;  width:375px; height:507px; border: solid 1px;
 	}
-
+	#tutorial{
+		line-height: 19px;
+		font-size:16px;
+	}
 	#fish{
 		height:200px;
 		background-image: url("./game_images/fish.gif");
@@ -184,10 +203,18 @@
 	#gamestart{
 		position: absolute;
 		top:10%;
-		left:13%;
-		width:280px;
-		height:200px;
-		transform: scale(1.0);
+		left:7%;
+		width:320px;
+		height:250px;
+		transform: scale(0.8);
+	}
+	#gameprevious{
+		position: absolute;
+		top:10%;
+		left:7%;
+		width:320px;
+		height:250px;
+		transform: scale(0.8);
 	}
 	#gameover{
 		position:absolute;
@@ -283,7 +310,10 @@
 		background-size: cover;
 		position:absolute;  top:45px; left:0px; width:414px; height:560px; border: solid 1px;
 	}
-
+	#tutorial{
+		line-height: 21px;
+		font-size:18px;
+	}
 	#fish{
 		height:200px;
 		background-image: url("./game_images/fish.gif");
@@ -306,10 +336,18 @@
 	#gamestart{
 		position: absolute;
 		top:10%;
-		left:16%;
-		width:280px;
-		height:200px;
-		transform: scale(1.0);
+		left:7%;
+		width:340px;
+		height:260px;
+		transform: scale(0.8);
+	}
+	#gameprevious{
+		position: absolute;
+		top:10%;
+		left:7%;
+		width:340px;
+		height:260px;
+		transform: scale(0.8);
 	}
 	#gameover{
 		position:absolute;
