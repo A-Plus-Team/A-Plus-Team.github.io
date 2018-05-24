@@ -129,7 +129,7 @@
             div4.style.border = "solid";
             div4.style.zIndex = "6";
             div4.style.width = "80%";
-            div4.style.height = "80%";
+            div4.style.height = "95%";
   
             
             var btn1 = document.createElement("input");
@@ -246,14 +246,16 @@
                 blockVariables[source] = !blockVariables[source];
                 waterLevel += 1.0;
                 document.getElementById("water").style.height = waterLevel + "px";
-                score += 1;
+                if(setMenu==0){
+                    score += 1;
+                }
                 document.getElementById("score").innerHTML = "score : " + score;
             }
             return false;
         }
         function blocksFunction(e){
             e.target.style.visibility = "hidden";
-            waterLevel += 10/2;
+            waterLevel += 14/2;
             document.getElementById("audio2").play();
             document.getElementById("water").style.height = waterLevel + "px";
         }
