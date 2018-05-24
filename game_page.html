@@ -58,9 +58,6 @@
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <script src="./js/dBAPIs.js"></script>
     <script>
-        
-        
-        
         var score = 0;
         var time = 0;
         var setMenu = 0;
@@ -72,9 +69,7 @@
             blockVariables[i] = false;
         }
         
-        //var au = document.getElementById("audio1");
-        var au = new Audio("https://www.soundjay.com/nature/sounds/lake-waves-lapping-on-the-shore-02.mp3");
-        var au0 = new Audio("https://www.soundjay.com/free-music/sounds/heart-of-the-sea-01.mp3");
+        var au = document.getElementById("audio1");
         au.loop = true;
         function playAudio() { 
             if(initAudioSet == 0){
@@ -82,10 +77,7 @@
                 au.pause();
                 document.getElementById("audio2").play();
                 document.getElementById("audio2").pause();
-//                document.getElementById("audio0").play();
-//                
-//                document.getElementById("audio0").volume = 0.7;
-                au0.play();
+                document.getElementById("audio0").play();
             }
             
             if(au.paused && initAudioSet ==1){
@@ -145,17 +137,17 @@
             var iter = 0;
             var arr = [];
             loadScore().forEach(function(childSnapshot) {
-            var childKey = childSnapshot.key;
-            var childData = childSnapshot.val();
-            arr[iter++] = childData;
-            for(var i = 0 ; i < arr.length; i++){
-                for(var j = i+1 ; j < arr.length ; j++){
-                    if(arr[i]['user_score'] < arr[j]['user_score']){
-                    var tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
-                    }
-                }}
+                var childKey = childSnapshot.key;
+                var childData = childSnapshot.val();
+                arr[iter++] = childData;
+                for(var i = 0 ; i < arr.length; i++){
+                    for(var j = i+1 ; j < arr.length ; j++){
+                        if(arr[i]['user_score'] < arr[j]['user_score']){
+                        var tmp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = tmp;
+                        }
+                    }}
             });
             for(var i = 0 ; i < arr.length ; i++){
                 if(rank<=8){
@@ -364,14 +356,6 @@
             window.location.href="index.html";
         }
     </script>
-    
-    
-   
-    
-    
-                        
-    
-    
     
 </body>
 </html>
