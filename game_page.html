@@ -102,7 +102,7 @@
             div1.style.textAlign = "center";
             div1.style.fontSize = "24px";
             div1.style.color = "azure";
-            div1.innerHTML = "<br>Do you want to log in to save score?<br><br><input type='button' value='yes' onclick='loginPage()'/>&emsp;<input type='button' value='no' onclick='playAudio();initFunction();div1.remove();'/><br>";
+            div1.innerHTML = "<br>Do you want to log in to save score?<br><br><input type='button' value='yes' onclick='loginPage()'/>&emsp;<input type='button' value='no' onclick='playAudio();initFunction();div1.remove();'/><br><br><input type='button' value='How to Play' onclick='tutorial();div1.remove();'/>";
             document.getElementById("base").appendChild(div1);
         }else{
             var div2 = document.createElement("div");
