@@ -67,8 +67,8 @@
 		position:absolute;  top:35px; left:0px; width:320px; height:432px;  border: solid 1px;
 	}
 	#tutorial{
-		line-height: 12px;
-		font-size:11px;
+		line-height: 13px;
+		font-size:12px;
 	}
 
 	#fish{
@@ -191,8 +191,8 @@
 		position:absolute;  top:40px; left:0px;  width:375px; height:507px; border: solid 1px;
 	}
 	#tutorial{
-		line-height: 13px;
-		font-size:12px;
+		line-height: 15px;
+		font-size:13px;
 	}
 	#fish{
 		height:200px;
@@ -311,8 +311,8 @@
 		position:absolute;  top:45px; left:0px; width:414px; height:560px; border: solid 1px;
 	}
 	#tutorial{
-		line-height: 15px;
-		font-size:14px;
+		line-height: 17px;
+		font-size:16px;
 	}
 	#fish{
 		height:200px;
